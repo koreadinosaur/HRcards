@@ -1,4 +1,11 @@
 @value mediaQuery: 62rem;
-@value title: 3em;
-@value label: 0.8em;
-@value placeholder: 1em;
+
+/* font-size */
+@value font-lg: 3em;
+@value font-medium: 3em;
+@value font-small: 3em;
+
+/* margin */
+@value margin-small: 0.6em;
+@value margin-medium: 1em;
+@value margin-lg: 2em;

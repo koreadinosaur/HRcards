@@ -1,14 +1,28 @@
+@value font-lg, margin-medium,  margin-small from '../common/size.css';
+
 .form {
   display: flex;
   position: relative;
   top: 2em;
   flex-direction: column;
-  justify-content: center;
+
   align-items: center;
+  background-color: white;
+  color: black;
+  width: 400px;
+  height: 600px;
+  margin: auto;
+}
+.title {
+  font-size: font-lg;
+  margin-bottom: margin-medium;
 }
 .input {
-  margin-bottom: 1em;
+  margin: margin-medium;
   width: 20em;
+}
+.label {
+  color: red;
 }
 .button {
   width: 5em;

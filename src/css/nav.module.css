@@ -8,6 +8,7 @@
 }
 .nav__item {
   margin-right: 1em;
+  color: white;
 }
 .nav__item:hover {
   cursor: pointer;
