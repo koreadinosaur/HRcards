@@ -2,9 +2,12 @@ import React from "react";
 import Nav from "./nav.jsx";
 import styles from "../css/login.module.css";
 
-const Login = (props) => {
+const Login = ({ auth }) => {
+  const authLogin = () => {
+    auth.login("Google");
+  };
   return (
-    <section>
+    <section className={styles.formContainer}>
       <Nav />
       <form action="" type="submit" className={styles.form}>
         <span className={styles.title}>Login</span>
@@ -27,8 +30,12 @@ const Login = (props) => {
           className={styles.input}
         />
         <button className={styles.button}>login</button>
-        <div>google</div>
       </form>
+      <div className={styles.authLoginContainer}>
+        <button className={styles.googleLogin} onClick={authLogin}>
+          google
+        </button>
+      </div>
     </section>
   );
 };

@@ -1,5 +1,14 @@
 @value font-lg, margin-medium,  margin-small from '../common/size.css';
 
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  width: 400px;
+  height: 600px;
+  margin: auto;
+}
 .form {
   display: flex;
   position: relative;
@@ -7,11 +16,6 @@
   flex-direction: column;
 
   align-items: center;
-  background-color: white;
-  color: black;
-  width: 400px;
-  height: 600px;
-  margin: auto;
 }
 .title {
   font-size: font-lg;
@@ -22,8 +26,14 @@
   width: 20em;
 }
 .label {
-  color: red;
 }
 .button {
+  width: 5em;
+}
+.authLoginContainer {
+  position: relative;
+  top: 5em;
+}
+.googleLogin {
   width: 5em;
 }

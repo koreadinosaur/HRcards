@@ -4,10 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.module.css";
 import App from "./app";
 import Authentication from "./firebase/auth";
-
+const Auth = new Authentication();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <App auth={Authentication} />
+    <App auth={Auth} />
   </BrowserRouter>
 );
