@@ -3,8 +3,8 @@ import Nav from "./nav.jsx";
 import styles from "../css/login.module.css";
 
 const Login = ({ auth }) => {
-  const authLogin = () => {
-    auth.login("Google");
+  const authLogin = (event) => {
+    auth.login(event.currentTarget.textContent).then(console.log);
   };
   return (
     <section className={styles.formContainer}>
@@ -33,7 +33,7 @@ const Login = ({ auth }) => {
       </form>
       <div className={styles.authLoginContainer}>
         <button className={styles.googleLogin} onClick={authLogin}>
-          google
+          Google
         </button>
       </div>
     </section>

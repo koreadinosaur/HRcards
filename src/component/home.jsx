@@ -1,10 +1,10 @@
 import React from "react";
 import Nav from "./nav";
 
-const Home = (props) => {
+const Home = ({ user, logout }) => {
   return (
     <div>
-      <Nav />
+      <Nav user={user} logout={logout} />
       <span>make your business card</span>
     </div>
   );
