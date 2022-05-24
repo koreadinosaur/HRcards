@@ -1,13 +1,26 @@
-@value font-lg, margin-medium,  margin-small from '../common/size.css';
+@value font-lg,margin-lg, margin-medium,  margin-small from '../common/size.css';
 
+.loginPage {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: auto;
+  top: margin-lg;
+}
+.logo {
+  background-color: aqua;
+  border-radius: 5% 0 0 5%;
+  width: 250px;
+}
 .formContainer {
   display: flex;
   flex-direction: column;
   background-color: white;
   color: black;
-  width: 400px;
-  height: 600px;
-  margin: auto;
+  width: 500px;
+  height: 400px;
+  margin: 0;
+  border-radius: 0 5% 5% 0;
 }
 .form {
   display: flex;
