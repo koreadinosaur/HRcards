@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.module.css";
@@ -7,11 +7,9 @@ import Authentication from "./firebase/auth";
 import firebase from "firebase";
 
 const Auth = new Authentication();
-const User = firebase.auth().currentUser;
-console.log(User);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <App auth={Auth} user={User} />
+    <App auth={Auth} />
   </BrowserRouter>
 );

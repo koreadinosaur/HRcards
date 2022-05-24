@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./nav.jsx";
 import styles from "../css/login.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ auth }) => {
+  const navigate = useNavigate();
   const authLogin = (event) => {
     auth.login(event.currentTarget.textContent).then(console.log);
   };
+  const goToHome = (user) => {
+    if (user) {
+      navigate("/");
+    }
+  };
+  useEffect(() => {
+    auth.onAuthChange(goToHome);
+  });
   return (
     <section className={styles.formContainer}>
-      <Nav />
       <form action="" type="submit" className={styles.form}>
         <span className={styles.title}>Login</span>
         <label htmlFor="username" className={styles.label}>
