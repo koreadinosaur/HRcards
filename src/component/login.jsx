@@ -4,10 +4,11 @@ import styles from "../css/login.module.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 const Login = ({ auth }) => {
   const navigate = useNavigate();
   const authLogin = (event) => {
-    auth.login(event.currentTarget.textContent).then(console.log);
+    auth.login("Google").then(console.log);
   };
   const goToHome = (user) => {
     if (user) {
@@ -19,16 +20,17 @@ const Login = ({ auth }) => {
   });
   return (
     <div className={styles.loginPage}>
-      <div className={styles.logo}>
+      <div className={styles.logoContainer}>
         <span>
-          <FontAwesomeIcon icon="fa-solid fa-address-card" />
+          <FontAwesomeIcon icon={faAddressCard} className={styles.icon} />
         </span>
+        <span className={styles.logoTitle}>make your business card</span>
       </div>
       <section className={styles.formContainer}>
         <form action="" type="submit" className={styles.form}>
-          <span className={styles.title}>Login</span>
+          <span className={styles.title}>Log In</span>
           <label htmlFor="username" className={styles.label}>
-            username
+            Username
           </label>
           <input
             type="text"
@@ -37,7 +39,7 @@ const Login = ({ auth }) => {
             className={styles.input}
           />
           <label htmlFor="password" className={styles.label}>
-            password
+            Password
           </label>
           <input
             type="password"
@@ -49,7 +51,11 @@ const Login = ({ auth }) => {
         </form>
         <div className={styles.authLoginContainer}>
           <button className={styles.googleLogin} onClick={authLogin}>
-            Google
+            <FontAwesomeIcon
+              icon={faGoogle}
+              className={styles.googleIcon}
+            ></FontAwesomeIcon>
+            sign in Google
           </button>
         </div>
       </section>

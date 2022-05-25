@@ -1,16 +1,30 @@
-@value font-lg,margin-lg, margin-medium,  margin-small from '../common/size.css';
+@value font-lg,margin-lg, margin-medium,  margin-small, font-medium, input-height from '../common/size.css';
 
 .loginPage {
   display: flex;
   position: relative;
   justify-content: center;
   margin: auto;
-  top: margin-lg;
+  transform: translateY(30%);
 }
-.logo {
-  background-color: aqua;
+.logoContainer {
+  background-color: wheat;
   border-radius: 5% 0 0 5%;
   width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  font-size: font-lg;
+  color: purple;
+}
+.logoTitle {
+  font-size: font-medium;
+  text-align: center;
+  color: purple;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .formContainer {
   display: flex;
@@ -22,13 +36,19 @@
   margin: 0;
   border-radius: 0 5% 5% 0;
 }
+.form label {
+  margin-right: auto;
+  /* margin-left: margin-medium; */
+  transform: translateX(30%);
+}
 .form {
   display: flex;
   position: relative;
   top: 2em;
   flex-direction: column;
-
+  font-family: Georgia, "Times New Roman", Times, serif;
   align-items: center;
+  color: burlywood;
 }
 .title {
   font-size: font-lg;
@@ -36,17 +56,46 @@
 }
 .input {
   margin: margin-medium;
-  width: 20em;
+  border: none;
+  width: 30em;
+  height: input-height;
+  border-bottom: 1px solid burlywood;
 }
-.label {
+.input:focus {
+  outline: 1px solid wheat;
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 .button {
-  width: 5em;
+  width: 10em;
+  height: input-height;
+  background: none;
+  color: burlywood;
+  border: 1px solid burlywood;
+  border-radius: 24px;
 }
 .authLoginContainer {
   position: relative;
   top: 5em;
+  display: flex;
+  justify-content: center;
 }
 .googleLogin {
-  width: 5em;
+  width: 20em;
+  height: input-height;
+  background: none;
+  border: none;
+  color: white;
+  background-color: skyblue;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.googleIcon {
+  font-size: font-medium;
+  margin-right: 1em;
 }

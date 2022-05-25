@@ -2,10 +2,15 @@
 
 /* font-size */
 @value font-lg: 3em;
-@value font-medium: 3em;
-@value font-small: 3em;
+@value font-medium: 2em;
+@value font-small: 0.8em;
 
 /* margin */
 @value margin-small: 0.6em;
 @value margin-medium: 1em;
 @value margin-lg: 2em;
+@value margin-2x: 4em;
+
+/* height */
+
+@value input-height: 2em;
