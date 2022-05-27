@@ -2,15 +2,15 @@
 
 .loginPage {
   display: flex;
-  position: relative;
   justify-content: center;
-  margin: auto;
-  transform: translateY(30%);
+  align-items: center;
+  height: 100%;
 }
 .logoContainer {
   background-color: wheat;
   border-radius: 5% 0 0 5%;
   width: 250px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;

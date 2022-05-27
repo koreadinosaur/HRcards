@@ -1,0 +1,8 @@
+@value headerBgColor from '../common/color.css';
+
+.footer {
+  background-color: headerBgColor;
+  color: white;
+  text-align: center;
+  line-height: 3em;
+}

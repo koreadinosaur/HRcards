@@ -1,17 +1,17 @@
-@value font-medium,margin-lg, margin-medium,  margin-small, font-medium, input-height from '../common/size.css';
-
+@value header-height, font-medium,margin-lg, margin-medium,  margin-small, font-medium, input-height from '../common/size.css';
+@value headerBgColor from '../common/color.css';
 .header {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 2.5em;
-  background-color: #61dafb;
   position: fixed;
   width: 100%;
+  height: header-height;
+  align-items: center;
+  justify-content: space-around;
+  background-color: headerBgColor;
 }
 .navContainer {
+  height: 100%;
   display: flex;
-
   right: 1em;
   list-style: none;
   padding: 0;
@@ -19,7 +19,8 @@
   /* background-color: aliceblue; */
 }
 .nav__item {
-  margin: 1em;
+  margin: 0 1em;
+  line-height: header-height;
   color: white;
 }
 .nav__item:hover {
@@ -29,7 +30,7 @@
 }
 .icon {
   font-size: font-medium;
-  color: purple;
+  color: hotpink;
 }
 .icon:hover {
   cursor: pointer;

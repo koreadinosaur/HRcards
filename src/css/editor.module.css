@@ -1,0 +1,7 @@
+.editor {
+  flex: 0.5;
+  color: brown;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 0.5em;
+}

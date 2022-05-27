@@ -12,5 +12,5 @@
 @value margin-2x: 4em;
 
 /* height */
-
+@value header-height: 3em;
 @value input-height: 2em;

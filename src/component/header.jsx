@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../css/nav.module.css";
+import styles from "../css/header.module.css";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const Nav = ({ user, logout }) => {
+const Header = ({ user, logout }) => {
   const navigate = useNavigate();
   const onlogout = () => {
     logout();
@@ -39,4 +39,4 @@ const Nav = ({ user, logout }) => {
   );
 };
 
-export default Nav;
+export default Header;

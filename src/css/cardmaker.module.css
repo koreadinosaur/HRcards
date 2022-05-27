@@ -1,33 +1,13 @@
+@value mediaQuery from '../common/size.css';
 .cardMakerContainer {
   background-color: wheat;
-  top: 2em;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
 }
-.cardMaker {
-  position: relative;
-  top: 3em;
-  color: white;
-  width: 50%;
-}
-.cardPreview {
-  position: relative;
-  top: 3em;
-  color: white;
-  width: 50%;
-}
 
-@media (max-width: 768px) {
+@media (max-width: mediaQuery) {
   .cardMakerContainer {
     flex-direction: column;
-  }
-  .cardMaker {
-    height: 50%;
-    width: 100%;
-  }
-  .cardPreview {
-    height: 50%;
-    width: 100%;
   }
 }

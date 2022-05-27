@@ -1,4 +1,7 @@
 @value makerblack, makerPink from './common/color.css';
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
