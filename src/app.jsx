@@ -1,12 +1,12 @@
 import styles from "./app.module.css";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import Login from "./component/login";
+import Login from "./component/login/login";
 import Home from "./component/home";
-import Cardmaker from "./component/cardmaker";
+import Cardmaker from "./component/cardmaker/cardmaker";
 import firebase from "firebase";
-import Header from "./component/header";
+import Header from "./component/header/header";
 import { useEffect, useState } from "react";
-import Footer from "./component/footer";
+import Footer from "./component/footer/footer";
 
 function App({ auth }) {
   const navigate = useNavigate();

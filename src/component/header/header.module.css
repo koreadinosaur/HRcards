@@ -1,5 +1,5 @@
-@value header-height, font-medium,margin-lg, margin-medium,  margin-small, font-medium, input-height from '../common/size.css';
-@value headerBgColor from '../common/color.css';
+@value header-height, font-medium,margin-lg, margin-medium,  margin-small, font-medium, input-height from '../../common/size.css';
+@value headerBgColor from '../../common/color.css';
 .header {
   display: flex;
   position: fixed;

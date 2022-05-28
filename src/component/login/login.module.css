@@ -1,4 +1,4 @@
-@value font-lg,margin-lg, margin-medium,  margin-small, font-medium, input-height from '../common/size.css';
+@value font-lg,margin-lg, margin-medium,  margin-small, font-medium, input-height from '../../common/size.css';
 
 .loginPage {
   display: flex;

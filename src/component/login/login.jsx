@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "../css/login.module.css";
+import styles from "./login.module.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";

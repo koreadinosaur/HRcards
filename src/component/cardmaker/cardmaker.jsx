@@ -1,8 +1,8 @@
 import { getDefaultNormalizer } from "@testing-library/react";
 import React from "react";
-import styles from "../css/cardmaker.module.css";
-import Editor from "./editor";
-import Preview from "./preview";
+import styles from "./cardmaker.module.css";
+import Editor from "../card_editor/editor";
+import Preview from "../preview/preview";
 const Cardmaker = (props) => {
   const cards = [
     {
@@ -10,14 +10,16 @@ const Cardmaker = (props) => {
       company: "kakao",
       department: "frontend",
       email: "khj7741@gamil.com",
-      introduction: "hi, i am hyeoung jin",
+      message: "hi, i am hyeoung jin",
+      theme: "dark",
     },
     {
       name: "khj",
       company: "kakao",
       department: "frontend",
       email: "khj7741@gamil.com",
-      introduction: "hi, i am hyeoung jin",
+      message: "hi, i am hyeoung jin",
+      theme: "pink",
     },
   ];
   return (

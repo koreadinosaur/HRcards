@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../css/editor.module.css";
-import Card from "./card";
+import styles from "./editor.module.css";
+import Card from "../card/card";
 const Editor = ({ cards }) => {
   return (
     <section className={styles.editor}>

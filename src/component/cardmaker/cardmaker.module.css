@@ -1,6 +1,6 @@
-@value mediaQuery from '../common/size.css';
+@value mediaQuery from '../../common/size.css';
 .cardMakerContainer {
-  background-color: wheat;
+  background-color: white;
   height: 100%;
   width: 100%;
   display: flex;

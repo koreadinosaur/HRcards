@@ -1,4 +1,4 @@
-@value headerBgColor from '../common/color.css';
+@value headerBgColor from '../../common/color.css';
 
 .footer {
   background-color: headerBgColor;
