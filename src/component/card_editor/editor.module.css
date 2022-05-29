@@ -1,7 +1,14 @@
+@value mediaQuery from '../../common/size.css';
+
+@media screen and (max-width: mediaQuery) {
+  .editor {
+    border-bottom: 1px solid black;
+  }
+}
 .editor {
-  flex: 0.5;
+  flex-basis: 50%;
   color: brown;
   border-right: 1px solid black;
-  border-bottom: 1px solid black;
+
   padding: 0.5em;
 }

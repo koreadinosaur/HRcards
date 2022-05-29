@@ -1,7 +1,7 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./index.module.css";
+import "./index.css";
 import App from "./app";
 import Authentication from "./firebase/auth";
 import firebase from "firebase";

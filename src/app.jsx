@@ -25,21 +25,21 @@ function App({ auth }) {
   };
   useEffect(() => isLogin);
   return (
-    <div className={styles.appContainer}>
+    <section className={styles.appContainer}>
       <header className={styles.header}>
         <Header logout={logout} user={loginUser} />
       </header>
-      <section className={styles.main}>
+      <div className={styles.main}>
         <Routes>
           <Route path="/" element={<Home logout={logout} />} />
           <Route path="/login" element={<Login auth={auth} />} />
           <Route path="/maker" element={<Cardmaker />} />
         </Routes>
-      </section>
+      </div>
       <footer>
         <Footer></Footer>
       </footer>
-    </div>
+    </section>
   );
 }
 

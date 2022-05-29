@@ -1,15 +1,17 @@
-@value header-height from './common/size.css';
+@value header-height, mediaQuery from './common/size.css';
 
-@media (prefers-reduced-motion: no-preference) {
+@media screen and (max-width: mediaQuery) {
+  .header {
+    padding-bottom: 3em;
+  }
 }
-
 @keyframes App-logo-spin {
 }
 
 .appContainer {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   flex-direction: column;
 }
 .header {

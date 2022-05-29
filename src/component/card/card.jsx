@@ -16,17 +16,19 @@ const Card = ({ card }) => {
         </select>
       </div>
       <div className={styles.row}>
-        <span className={styles.row2Element}>{department}</span>
-        <span className={styles.row2Element}>{email}</span>
+        <span>{department}</span>
+        <span>{email}</span>
       </div>
       <div className={styles.row}>
-        <span className={styles.row3Element}>"{message}"</span>
+        <span>"{message}"</span>
       </div>
       <div className={styles.row}>
         <span className={`${styles.fileName} ${styles.row4Element}`}>
           {name}
         </span>
-        <span className={`${styles.delete} ${styles.row4Element}`}>Delete</span>
+        <button className={`${styles.delete} ${styles.row4Element}`}>
+          Delete
+        </button>
       </div>
     </section>
   );

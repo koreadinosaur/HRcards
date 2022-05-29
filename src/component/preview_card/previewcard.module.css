@@ -24,7 +24,8 @@
   content: "";
   height: 1px;
   width: 90%;
-  background-color: black;
+  background-color: burlywood;
+  margin-top: 0.5em;
 }
 
 .imgContainer img {

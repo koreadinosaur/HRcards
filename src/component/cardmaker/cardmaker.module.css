@@ -6,7 +6,7 @@
   display: flex;
 }
 
-@media (max-width: mediaQuery) {
+@media screen and (max-width: mediaQuery) {
   .cardMakerContainer {
     flex-direction: column;
   }
