@@ -28,10 +28,14 @@ const Cardmaker = (props) => {
     const newCards = [...cards, card];
     setCards(newCards);
   };
+  const deleteCard = (cardId) => {
+    const newCard = cards.filter((item) => item.id !== cardId);
+    setCards(newCard);
+  };
 
   return (
     <section className={styles.cardMakerContainer}>
-      <Editor onAdd={addCards} cards={cards} />
+      <Editor onAdd={addCards} cards={cards} onDelete={deleteCard} />
       <Preview cards={cards} />
     </section>
   );

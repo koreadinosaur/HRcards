@@ -5,7 +5,7 @@ const Addcardform = ({ onAdd }) => {
   const formRef = React.createRef();
   const addCard = (event) => {
     event.preventDefault();
-    const id = new Date();
+    const id = Date.now();
     const name = formRef.current[0].value;
     const company = formRef.current[1].value;
     const theme = formRef.current[2].value;
@@ -19,19 +19,20 @@ const Addcardform = ({ onAdd }) => {
   return (
     <form ref={formRef} onSubmit={addCard} className={styles.cardContainer}>
       <div className={styles.row}>
-        <input type="text" />
-        <input type="text" />
+        <input type="text" placeholder="name" />
+        <input type="text" placeholder="company" />
         <select>
           <option value="dark">dark</option>
           <option value="white">white</option>
+          <option value="pink">pink</option>
         </select>
       </div>
       <div className={styles.row}>
-        <input type="text" />
-        <input type="text" />
+        <input type="text" placeholder="department" />
+        <input type="text" placeholder="email" />
       </div>
       <div className={styles.row}>
-        <input type="text" />
+        <input type="text" placeholder="message" />
       </div>
       <div className={styles.row}>
         <input type="file" />
