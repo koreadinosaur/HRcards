@@ -2,10 +2,14 @@ import { faBlackberry } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
 import styles from "./card.module.css";
 
-const Card = ({ card, onDelete }) => {
-  const { name, company, theme, email, message, department, id } = card;
+const Card = ({ card, onDelete, onUpdateForm }) => {
+  const { name, company, theme, email, message, department, id, update } = card;
+  const formRef = React.createRef();
   const handleDelete = (event) => {
     onDelete(id);
+  };
+  const handleUpdate = () => {
+    onUpdateForm(id);
   };
   return (
     <section className={styles.cardContainer}>
@@ -29,6 +33,9 @@ const Card = ({ card, onDelete }) => {
         <span className={`${styles.fileName} ${styles.row4Element}`}>
           {name}
         </span>
+        <button className={styles.update} onClick={handleUpdate}>
+          수정하기
+        </button>
         <button
           onClick={handleDelete}
           className={`${styles.delete} ${styles.row4Element}`}

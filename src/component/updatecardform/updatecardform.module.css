@@ -1,0 +1,36 @@
+.cardContainer {
+  margin: 1em 0;
+}
+.row {
+  display: flex;
+}
+
+.fileName {
+  background-color: aqua;
+}
+.delete {
+  background-color: darkslateblue;
+}
+span {
+}
+.row input {
+  border: none;
+}
+.row input,
+.row select,
+.row button {
+  width: 100%;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  padding-left: 1em;
+  line-height: 2em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.cardContainer {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+}
+.row button {
+  border-top: none;
+  border-left: none;
+}

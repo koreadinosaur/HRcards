@@ -13,6 +13,7 @@ const Cardmaker = (props) => {
       email: "khj7741@gamil.com",
       message: "hi, i am hyeoung jin",
       theme: "dark",
+      update: "false",
     },
     {
       id: "2",
@@ -22,6 +23,7 @@ const Cardmaker = (props) => {
       email: "khj7741@gamil.com",
       message: "hi, i am hyeoung jin",
       theme: "pink",
+      update: "flase",
     },
   ]);
   const addCards = (card) => {
@@ -29,13 +31,38 @@ const Cardmaker = (props) => {
     setCards(newCards);
   };
   const deleteCard = (cardId) => {
-    const newCard = cards.filter((item) => item.id !== cardId);
-    setCards(newCard);
+    const newCards = cards.filter((item) => item.id !== cardId);
+    setCards(newCards);
+  };
+  const changeToForm = (cardId) => {
+    const newCards = [...cards];
+    const findIndex = newCards.findIndex((card) => card.id == cardId);
+    if (findIndex != -1) {
+      newCards[findIndex] = { ...newCards[findIndex], update: "true" };
+    }
+    console.log(newCards);
+    setCards(newCards);
+  };
+
+  const handleUpdate = (cardId, obj) => {
+    const newCards = [...cards];
+    const findIndex = newCards.findIndex((card) => card.id == cardId);
+    if (findIndex != -1) {
+      newCards[findIndex] = { ...obj };
+    }
+    setCards(newCards);
+    console.log(newCards);
   };
 
   return (
     <section className={styles.cardMakerContainer}>
-      <Editor onAdd={addCards} cards={cards} onDelete={deleteCard} />
+      <Editor
+        onAdd={addCards}
+        cards={cards}
+        onDelete={deleteCard}
+        onUpdateForm={changeToForm}
+        onUpdate={handleUpdate}
+      />
       <Preview cards={cards} />
     </section>
   );

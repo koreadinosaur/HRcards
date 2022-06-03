@@ -3,6 +3,7 @@
 .header {
   display: flex;
   position: fixed;
+  max-width: 2000px;
   width: 100%;
   height: header-height;
   align-items: center;
