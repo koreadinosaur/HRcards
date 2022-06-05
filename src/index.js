@@ -5,11 +5,13 @@ import "./index.css";
 import App from "./app";
 import Authentication from "./firebase/auth";
 import firebase from "firebase";
+import UploadFile from "./service/cloudinary/upload";
 
+const upload = new UploadFile();
 const Auth = new Authentication();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <App auth={Auth} />
+    <App auth={Auth} upload={upload} />
   </BrowserRouter>
 );

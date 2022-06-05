@@ -22,7 +22,6 @@ const UpdateCardForm = ({ onUpdate, card }) => {
       message,
       update: "flase",
     };
-    console.log(newObj);
     onUpdate(id, newObj);
   };
   return (

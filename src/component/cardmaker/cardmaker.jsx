@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import styles from "./cardmaker.module.css";
 import Editor from "../card_editor/editor";
 import Preview from "../preview/preview";
-const Cardmaker = (props) => {
+import imgUrl from "../../img/favicon.ico";
+
+const Cardmaker = ({ upload }) => {
   const [cards, setCards] = useState([
     {
       id: "1",
@@ -14,6 +16,7 @@ const Cardmaker = (props) => {
       message: "hi, i am hyeoung jin",
       theme: "dark",
       update: "false",
+      url: `${imgUrl}`,
     },
     {
       id: "2",
@@ -24,6 +27,7 @@ const Cardmaker = (props) => {
       message: "hi, i am hyeoung jin",
       theme: "pink",
       update: "flase",
+      url: `${imgUrl}`,
     },
   ]);
   const addCards = (card) => {
@@ -40,7 +44,6 @@ const Cardmaker = (props) => {
     if (findIndex != -1) {
       newCards[findIndex] = { ...newCards[findIndex], update: "true" };
     }
-    console.log(newCards);
     setCards(newCards);
   };
 
@@ -51,7 +54,6 @@ const Cardmaker = (props) => {
       newCards[findIndex] = { ...obj };
     }
     setCards(newCards);
-    console.log(newCards);
   };
 
   return (
@@ -62,6 +64,7 @@ const Cardmaker = (props) => {
         onDelete={deleteCard}
         onUpdateForm={changeToForm}
         onUpdate={handleUpdate}
+        upload={upload}
       />
       <Preview cards={cards} />
     </section>

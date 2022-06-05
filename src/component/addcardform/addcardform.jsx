@@ -1,8 +1,9 @@
-import React, { createRef } from "react";
+import React, { createRef, useState } from "react";
 import styles from "./addcardform.module.css";
 
-const Addcardform = ({ onAdd }) => {
+const Addcardform = ({ onAdd, upload }) => {
   const formRef = React.createRef();
+  const [url, setUrl] = useState("");
   const addCard = (event) => {
     event.preventDefault();
     const id = Date.now();
@@ -22,9 +23,14 @@ const Addcardform = ({ onAdd }) => {
       email,
       message,
       update,
+      url,
     };
     console.log(newObj);
     onAdd(newObj);
+  };
+  const uploadFile = async (e) => {
+    const uploaded = await upload.upload(e.target.files);
+    setUrl(uploaded.url);
   };
   return (
     <form ref={formRef} onSubmit={addCard} className={styles.cardContainer}>
@@ -45,7 +51,7 @@ const Addcardform = ({ onAdd }) => {
         <input type="text" placeholder="message" />
       </div>
       <div className={styles.row}>
-        <input type="file" />
+        <input type="file" onChange={uploadFile} />
         <button className={styles.add}>Add</button>
       </div>
     </form>

@@ -13,12 +13,12 @@ const cardColor = (theme) => {
 };
 
 const PreviewCard = ({ card }) => {
-  const { name, company, theme, email, message, department } = card;
+  const { name, company, theme, email, message, department, url } = card;
 
   return (
     <section className={`${styles.preview} ${cardColor(theme)}`}>
       <div className={styles.imgContainer}>
-        <img src={require("../../img/favicon.ico")} alt="" />
+        <img src={url} alt="" />
       </div>
       <div className={styles.info}>
         <span className={styles.name}>{name}</span>
