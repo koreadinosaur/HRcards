@@ -1,9 +1,11 @@
 import React, { createRef, useState } from "react";
 import styles from "./addcardform.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const Addcardform = ({ onAdd, upload }) => {
   const formRef = React.createRef();
-  const [url, setUrl] = React.useState("");
+  const [file, setFile] = useState({ url: null, fileName: null });
   const addCard = (event) => {
     event.preventDefault();
     const id = Date.now();
@@ -23,14 +25,16 @@ const Addcardform = ({ onAdd, upload }) => {
       email,
       message,
       update,
-      url,
+      url: file.url,
+      fileName: file.fileName,
     };
     console.log(newObj);
     onAdd(newObj);
   };
   const uploadFile = async (e) => {
     const uploaded = await upload.upload(e.target.files);
-    setUrl(uploaded.url);
+    setFile({ url: uploaded.url, fileName: uploaded.original_filename });
+    console.log(file);
   };
   return (
     <form ref={formRef} onSubmit={addCard} className={styles.cardContainer}>
@@ -51,8 +55,27 @@ const Addcardform = ({ onAdd, upload }) => {
         <input type="text" placeholder="message" />
       </div>
       <div className={styles.row}>
-        <input type="file" onChange={uploadFile} />
-        <button className={styles.add}>Add</button>
+        <label htmlFor="upload" className={styles.label}>
+          {file.fileName ? (
+            `filename : ${file.fileName}`
+          ) : (
+            <span>
+              <FontAwesomeIcon
+                className={styles.uploadIcon}
+                icon={faFileArrowUp}
+              />
+              Uplaod File
+            </span>
+          )}
+        </label>
+        <input
+          type="file"
+          accept="image/*"
+          className={styles.input}
+          onChange={uploadFile}
+          id="upload"
+        />
+        <button className={styles.addBtn}>Add</button>
       </div>
     </form>
   );

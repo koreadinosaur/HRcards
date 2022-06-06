@@ -11,11 +11,11 @@
 .delete {
   background-color: darkslateblue;
 }
-span {
-}
+
 .row input {
   border: none;
 }
+.label,
 .row input,
 .row select,
 .row button {
@@ -33,4 +33,25 @@ span {
 .row button {
   border-top: none;
   border-left: none;
+}
+
+.input {
+  display: none;
+}
+.label {
+  display: flex;
+  justify-content: center;
+}
+.label span {
+  display: flex;
+  align-items: center;
+}
+.label:hover {
+  cursor: pointer;
+}
+
+.uploadIcon {
+  font-size: 1.5em;
+  color: blueviolet;
+  margin-right: 10px;
 }

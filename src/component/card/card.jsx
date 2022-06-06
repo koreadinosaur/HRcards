@@ -3,7 +3,17 @@ import React from "react";
 import styles from "./card.module.css";
 
 const Card = ({ card, onDelete, onUpdateForm }) => {
-  const { name, company, theme, email, message, department, id, update } = card;
+  const {
+    name,
+    company,
+    theme,
+    email,
+    message,
+    department,
+    id,
+    update,
+    fileName,
+  } = card;
   const formRef = React.createRef();
   const handleDelete = (event) => {
     onDelete(id);
@@ -31,7 +41,7 @@ const Card = ({ card, onDelete, onUpdateForm }) => {
       </div>
       <div className={styles.row}>
         <span className={`${styles.fileName} ${styles.row4Element}`}>
-          {name}
+          {fileName || "업로드된 파일이 없습니다"}
         </span>
         <button className={styles.update} onClick={handleUpdate}>
           수정하기
