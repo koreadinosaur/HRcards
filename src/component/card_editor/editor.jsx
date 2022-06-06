@@ -24,6 +24,7 @@ const Editor = ({ cards, onAdd, onDelete, onUpdate, onUpdateForm, upload }) => {
               key={card.id}
               onUpdate={onUpdate}
               onDelete={onDelete}
+              upload={upload}
             />
           );
         }
