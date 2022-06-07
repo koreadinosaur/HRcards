@@ -8,7 +8,7 @@ import Header from "./component/header/header";
 import { useEffect, useState } from "react";
 import Footer from "./component/footer/footer";
 
-function App({ auth, upload }) {
+function App({ auth, onUpload }) {
   const navigate = useNavigate();
   const [loginUser, setLoginUser] = useState();
   const logout = () => {
@@ -33,7 +33,7 @@ function App({ auth, upload }) {
         <Routes>
           <Route path="/" element={<Home logout={logout} />} />
           <Route path="/login" element={<Login auth={auth} />} />
-          <Route path="/maker" element={<Cardmaker upload={upload} />} />
+          <Route path="/maker" element={<Cardmaker onUpload={onUpload} />} />
         </Routes>
       </div>
       <footer>

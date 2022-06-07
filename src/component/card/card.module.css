@@ -20,11 +20,15 @@
   flex: 0.5;
   border: 1px solid black;
 } */
-.fileName {
-  background-color: aqua;
-}
+
 .delete {
   background-color: darkslateblue;
+}
+.row .fileName {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  padding: 0;
 }
 
 .row span,
@@ -35,7 +39,9 @@
   border-right: 1px solid black;
   padding-left: 1em;
   line-height: 2em;
-  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.row button {
+  padding: 0;
 }
 .cardContainer {
   border-left: 1px solid black;

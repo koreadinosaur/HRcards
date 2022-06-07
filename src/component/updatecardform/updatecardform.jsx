@@ -3,36 +3,28 @@ import styles from "./updatecardform.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 
-const UpdateCardForm = ({ onUpdate, card, upload }) => {
+import UpdateInput from "../updateinput/updateinput";
+
+const UpdateCardForm = ({ onUpdate, card, onUpload }) => {
   const formRef = React.createRef();
   const [file, setFile] = useState({ url: null, fileName: null });
   const { name, company, theme, email, message, department, id, update } = card;
 
   const updateCard = (event) => {
     event.preventDefault();
-    const name = formRef.current[0].value;
-    const company = formRef.current[1].value;
-    const theme = formRef.current[2].value;
-    const department = formRef.current[3].value;
-    const email = formRef.current[4].value;
-    const message = formRef.current[5].value;
     const newObj = {
-      id,
-      name,
-      company,
-      theme,
-      department,
-      email,
-      message,
+      ...card,
       update: "false",
       url: file.url ? file.url : card.url,
       fileName: file.fileName ? file.fileName : card.fileName,
     };
     onUpdate(id, newObj);
   };
-  const uploadFile = async (e) => {
-    const uploaded = await upload.upload(e.target.files);
-    setFile({ url: uploaded.url, fileName: uploaded.original_filename });
+  const addFile = (obj) => {
+    setFile({
+      url: obj.url,
+      fileName: obj.fileName,
+    });
   };
   return (
     <form ref={formRef} onSubmit={updateCard} className={styles.cardContainer}>
@@ -53,28 +45,14 @@ const UpdateCardForm = ({ onUpdate, card, upload }) => {
         <input type="text" placeholder="message" defaultValue={message} />
       </div>
       <div className={styles.row}>
-        <label htmlFor="upload" className={styles.label}>
-          {file.fileName || card.fileName ? (
-            <span>
-              filename : {file.fileName ? file.fileName : card.fileName}
-            </span>
-          ) : (
-            <span>
-              <FontAwesomeIcon
-                className={styles.uploadIcon}
-                icon={faFileArrowUp}
-              />
-              Uplaod File
-            </span>
-          )}
-        </label>
-        <input
-          type="file"
-          accept="image/*"
-          className={styles.input}
-          onChange={uploadFile}
-          id="upload"
-        />
+        <div className={styles.inputContainer}>
+          <UpdateInput
+            card={card}
+            file={file}
+            onUpload={onUpload}
+            onAddFile={addFile}
+          />
+        </div>
         <button className={styles.add}>Update</button>
       </div>
     </form>

@@ -2,8 +2,9 @@ import React, { createRef, useState } from "react";
 import styles from "./addcardform.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
+import Uploadinput from "../uploadinput/uploadinput";
 
-const Addcardform = ({ onAdd, upload }) => {
+const Addcardform = ({ onAdd, onUpload }) => {
   const formRef = React.createRef();
   const [file, setFile] = useState({ url: null, fileName: null });
   const addCard = (event) => {
@@ -29,12 +30,15 @@ const Addcardform = ({ onAdd, upload }) => {
       fileName: file.fileName,
     };
     console.log(newObj);
+    formRef.current.reset();
+    setFile({ url: null, fileName: null });
     onAdd(newObj);
   };
-  const uploadFile = async (e) => {
-    const uploaded = await upload.upload(e.target.files);
-    setFile({ url: uploaded.url, fileName: uploaded.original_filename });
-    console.log(file);
+  const addFile = (obj) => {
+    setFile({
+      url: obj.url,
+      fileName: obj.fileName,
+    });
   };
   return (
     <form ref={formRef} onSubmit={addCard} className={styles.cardContainer}>
@@ -54,29 +58,12 @@ const Addcardform = ({ onAdd, upload }) => {
       <div className={styles.row}>
         <input type="text" placeholder="message" />
       </div>
-      <div className={styles.row}>
-        <label htmlFor="upload" className={styles.label}>
-          {file.fileName ? (
-            `filename : ${file.fileName}`
-          ) : (
-            <span>
-              <FontAwesomeIcon
-                className={styles.uploadIcon}
-                icon={faFileArrowUp}
-              />
-              Uplaod File
-            </span>
-          )}
-        </label>
-        <input
-          type="file"
-          accept="image/*"
-          className={styles.input}
-          onChange={uploadFile}
-          id="upload"
-        />
+      <footer className={styles.row}>
+        <div className={styles.inputContainer}>
+          <Uploadinput onUpload={onUpload} onAddFile={addFile} file={file} />
+        </div>
         <button className={styles.addBtn}>Add</button>
-      </div>
+      </footer>
     </form>
   );
 };

@@ -41,7 +41,7 @@ const Card = ({ card, onDelete, onUpdateForm }) => {
       </div>
       <div className={styles.row}>
         <span className={`${styles.fileName} ${styles.row4Element}`}>
-          {fileName || "업로드된 파일이 없습니다"}
+          {fileName ? `file: ${fileName}` : "업로드된 파일이 없습니다"}
         </span>
         <button className={styles.update} onClick={handleUpdate}>
           수정하기

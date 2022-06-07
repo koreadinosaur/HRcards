@@ -5,7 +5,7 @@ import Editor from "../card_editor/editor";
 import Preview from "../preview/preview";
 import imgUrl from "../../img/favicon.ico";
 
-const Cardmaker = ({ upload }) => {
+const Cardmaker = ({ onUpload }) => {
   const [cards, setCards] = useState([
     {
       id: "1",
@@ -64,7 +64,7 @@ const Cardmaker = ({ upload }) => {
         onDelete={deleteCard}
         onUpdateForm={changeToForm}
         onUpdate={handleUpdate}
-        upload={upload}
+        onUpload={onUpload}
       />
       <Preview cards={cards} />
     </section>

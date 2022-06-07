@@ -12,6 +12,6 @@ const Auth = new Authentication();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <App auth={Auth} upload={upload} />
+    <App auth={Auth} onUpload={upload} />
   </BrowserRouter>
 );

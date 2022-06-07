@@ -4,7 +4,14 @@ import Card from "../card/card";
 import Addcardform from "../addcardform/addcardform";
 import UpdateCardForm from "../updatecardform/updatecardform";
 
-const Editor = ({ cards, onAdd, onDelete, onUpdate, onUpdateForm, upload }) => {
+const Editor = ({
+  cards,
+  onAdd,
+  onDelete,
+  onUpdate,
+  onUpdateForm,
+  onUpload,
+}) => {
   return (
     <section className={styles.editor}>
       {cards.map((card) => {
@@ -24,12 +31,12 @@ const Editor = ({ cards, onAdd, onDelete, onUpdate, onUpdateForm, upload }) => {
               key={card.id}
               onUpdate={onUpdate}
               onDelete={onDelete}
-              upload={upload}
+              onUpload={onUpload}
             />
           );
         }
       })}
-      <Addcardform onAdd={onAdd} upload={upload} />
+      <Addcardform onAdd={onAdd} onUpload={onUpload} />
     </section>
   );
 };
