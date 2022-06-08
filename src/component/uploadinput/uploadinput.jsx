@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const Uploadinput = ({ onUpload, onAddFile, file }) => {
-  const uploadFile = async (e) => {
-    const uploaded = await onUpload.upload(e.target.files);
+  const [loading, setLoading] = useState(false);
 
+  const uploadFile = async (e) => {
+    setLoading(true);
+    const uploaded = await onUpload.upload(e.target.files);
+    setLoading(false);
     onAddFile({ url: uploaded.url, fileName: uploaded.original_filename });
   };
   return (
@@ -14,6 +17,10 @@ const Uploadinput = ({ onUpload, onAddFile, file }) => {
       <label htmlFor="upload" className={styles.label}>
         {file.fileName ? (
           `file : ${file.fileName}`
+        ) : loading ? (
+          <div className={styles.loading}>
+            <span></span>
+          </div>
         ) : (
           <span>
             <FontAwesomeIcon

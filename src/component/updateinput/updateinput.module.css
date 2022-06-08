@@ -22,3 +22,26 @@
   color: blueviolet;
   margin-right: 10px;
 }
+.loading {
+  display: flex;
+  align-items: center;
+  height: 2em;
+}
+.loading span {
+  line-height: 2em;
+  border: 3px solid black;
+  border-right-color: transparent;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

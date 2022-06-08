@@ -4,10 +4,12 @@ class UploadFile {
     const url = "https://api.cloudinary.com/v1_1/demo/image/upload";
     formData.append("file", file[0]);
     formData.append("upload_preset", "docs_upload_example_us_preset");
+
     const res = await fetch(url, {
       method: "POST",
       body: formData,
     });
+
     return await res.json();
   }
 }
