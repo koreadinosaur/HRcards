@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import firebaseApp from "./firebase";
+import { firebaseApp } from "./firebase";
 class Authentication {
   login(providerName) {
     const provider = new firebase.auth[`${providerName}AuthProvider`]();

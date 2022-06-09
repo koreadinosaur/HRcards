@@ -37,7 +37,7 @@ const Card = ({ card, onDelete, onUpdateForm }) => {
         <span>{email}</span>
       </div>
       <div className={styles.row}>
-        <span>"{message}"</span>
+        <span>{`"${message}"`}</span>
       </div>
       <div className={styles.row}>
         <span className={`${styles.fileName} ${styles.row4Element}`}>

@@ -5,7 +5,7 @@ import Editor from "../card_editor/editor";
 import Preview from "../preview/preview";
 import imgUrl from "../../img/favicon.ico";
 
-const Cardmaker = ({ onUpload }) => {
+const Cardmaker = ({ onUpload, database }) => {
   const [cards, setCards] = useState([
     {
       id: "1",
@@ -15,7 +15,7 @@ const Cardmaker = ({ onUpload }) => {
       email: "khj7741@gamil.com",
       message: "hi, i am hyeoung jin",
       theme: "dark",
-      update: "false",
+      update: false,
       url: `${imgUrl}`,
     },
     {
@@ -26,13 +26,14 @@ const Cardmaker = ({ onUpload }) => {
       email: "khj7741@gamil.com",
       message: "hi, i am hyeoung jin",
       theme: "pink",
-      update: "flase",
+      update: false,
       url: `${imgUrl}`,
     },
   ]);
   const addCards = (card) => {
     const newCards = [...cards, card];
     setCards(newCards);
+    database.addData(card);
   };
   const deleteCard = (cardId) => {
     const newCards = cards.filter((item) => item.id !== cardId);
