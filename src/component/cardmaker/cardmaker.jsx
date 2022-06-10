@@ -1,5 +1,5 @@
 import { getDefaultNormalizer } from "@testing-library/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./cardmaker.module.css";
 import Editor from "../card_editor/editor";
 import Preview from "../preview/preview";
@@ -30,6 +30,13 @@ const Cardmaker = ({ onUpload, database }) => {
       url: `${imgUrl}`,
     },
   ]);
+  const dbToCards = (cards) => {
+    setCards(cards);
+  };
+  useEffect(() => {
+    database.getData(dbToCards);
+  }, []);
+
   const addCards = (card) => {
     const newCards = [...cards, card];
     setCards(newCards);

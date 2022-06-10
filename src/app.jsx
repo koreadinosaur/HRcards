@@ -21,7 +21,6 @@ function App({ auth, onUpload, database }) {
   };
   const isLogin = () => {
     auth.onAuthChange(setLoginUser);
-    console.log(loginUser);
   };
   useEffect(() => isLogin);
   return (
