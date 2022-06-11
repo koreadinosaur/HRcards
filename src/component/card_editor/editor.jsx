@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./editor.module.css";
 import Card from "../card/card";
 import Addcardform from "../addcardform/addcardform";
@@ -11,7 +11,12 @@ const Editor = ({
   onUpdate,
   onUpdateForm,
   onUpload,
+  database,
+  getFirestoreDB,
 }) => {
+  useEffect(() => {
+    database.getData(getFirestoreDB);
+  }, []);
   return (
     <section className={styles.editor}>
       {cards.map((card) => {
@@ -22,6 +27,7 @@ const Editor = ({
               key={card.id}
               onUpdateForm={onUpdateForm}
               onDelete={onDelete}
+              database={database}
             />
           );
         } else {

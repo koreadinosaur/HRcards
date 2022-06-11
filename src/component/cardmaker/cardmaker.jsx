@@ -6,36 +6,10 @@ import Preview from "../preview/preview";
 import imgUrl from "../../img/favicon.ico";
 
 const Cardmaker = ({ onUpload, database }) => {
-  const [cards, setCards] = useState([
-    {
-      id: "1",
-      name: "khj",
-      company: "kakao",
-      department: "frontend",
-      email: "khj7741@gamil.com",
-      message: "hi, i am hyeoung jin",
-      theme: "dark",
-      update: false,
-      url: `${imgUrl}`,
-    },
-    {
-      id: "2",
-      name: "khj",
-      company: "kakao",
-      department: "frontend",
-      email: "khj7741@gamil.com",
-      message: "hi, i am hyeoung jin",
-      theme: "pink",
-      update: false,
-      url: `${imgUrl}`,
-    },
-  ]);
+  const [cards, setCards] = useState([]);
   const dbToCards = (cards) => {
     setCards(cards);
   };
-  useEffect(() => {
-    database.getData(dbToCards);
-  }, []);
 
   const addCards = (card) => {
     const newCards = [...cards, card];
@@ -45,6 +19,7 @@ const Cardmaker = ({ onUpload, database }) => {
   const deleteCard = (cardId) => {
     const newCards = cards.filter((item) => item.id !== cardId);
     setCards(newCards);
+    database.delete(cardId);
   };
   const changeToForm = (cardId) => {
     const newCards = [...cards];
@@ -73,6 +48,8 @@ const Cardmaker = ({ onUpload, database }) => {
         onUpdateForm={changeToForm}
         onUpdate={handleUpdate}
         onUpload={onUpload}
+        database={database}
+        getFirestoreDB={dbToCards}
       />
       <Preview cards={cards} />
     </section>

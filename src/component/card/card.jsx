@@ -1,8 +1,9 @@
 import { faBlackberry } from "@fortawesome/free-brands-svg-icons";
+import { database } from "firebase";
 import React from "react";
 import styles from "./card.module.css";
 
-const Card = ({ card, onDelete, onUpdateForm }) => {
+const Card = ({ card, database, onDelete, onUpdateForm }) => {
   const {
     name,
     company,

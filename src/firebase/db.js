@@ -19,10 +19,14 @@ class Database {
             cards = [...cards, { ...doc.data(), id: doc.id }];
           }
         });
-        console.log(cards);
-        callback(cards);
+        const newCards = [...cards];
+        console.log(newCards);
+        callback(newCards);
       })
       .catch((err) => console.log(err));
+  }
+  delete(id) {
+    db.collection("cards").doc(id).delete();
   }
 }
 
