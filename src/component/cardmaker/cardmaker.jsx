@@ -5,8 +5,20 @@ import Editor from "../card_editor/editor";
 import Preview from "../preview/preview";
 import imgUrl from "../../img/favicon.ico";
 
-const Cardmaker = ({ onUpload, database }) => {
-  const [cards, setCards] = useState([]);
+const Cardmaker = ({ onUpload, database, userId }) => {
+  const [cards, setCards] = useState([
+    {
+      name: "김형진",
+      company: "무직",
+      theme: "pink",
+      email: "비밀",
+      message: "반갑습니다",
+      department: "개발",
+      id: 123123,
+      update: "false",
+      fileName: null,
+    },
+  ]);
   const dbToCards = (cards) => {
     setCards(cards);
   };
@@ -14,12 +26,12 @@ const Cardmaker = ({ onUpload, database }) => {
   const addCards = (card) => {
     const newCards = [...cards, card];
     setCards(newCards);
-    database.addData(card);
+    database.addData(card, userId);
   };
   const deleteCard = (cardId) => {
     const newCards = cards.filter((item) => item.id !== cardId);
     setCards(newCards);
-    database.delete(cardId);
+    database.delete(cardId, userId);
   };
   const changeToForm = (cardId) => {
     const newCards = [...cards];
@@ -42,6 +54,7 @@ const Cardmaker = ({ onUpload, database }) => {
   return (
     <section className={styles.cardMakerContainer}>
       <Editor
+        userId={userId}
         onAdd={addCards}
         cards={cards}
         onDelete={deleteCard}

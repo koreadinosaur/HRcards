@@ -20,7 +20,8 @@ function App({ auth, onUpload, database }) {
       });
   };
   const isLogin = () => {
-    auth.onAuthChange(setLoginUser);
+    const currentUser = auth.onAuthChange(setLoginUser);
+    console.log(loginUser);
   };
   useEffect(() => isLogin);
   return (
@@ -34,7 +35,13 @@ function App({ auth, onUpload, database }) {
           <Route path="/login" element={<Login auth={auth} />} />
           <Route
             path="/maker"
-            element={<Cardmaker database={database} onUpload={onUpload} />}
+            element={
+              <Cardmaker
+                userId={loginUser ? loginUser.uid : null}
+                database={database}
+                onUpload={onUpload}
+              />
+            }
           />
         </Routes>
       </div>

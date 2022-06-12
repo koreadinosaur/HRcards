@@ -1,16 +1,24 @@
 import { db } from "./firebase";
 
 class Database {
-  addData(data) {
+  addData(data, userId) {
+    if (!userId) {
+      return;
+    }
     db.collection("cards")
-      .add(data)
+      .doc(userId)
+      .set(data)
       .then((doc) => {
         console.log("Document ID: ", doc.id);
       })
       .catch(console.log);
   }
-  getData(callback) {
-    db.collection("cards")
+  getData(callback, userId) {
+    if (!userId) {
+      return;
+    }
+    const docRef = db.collection("cards").doc(userId);
+    docRef
       .get()
       .then((querySnapshot) => {
         let cards = [];
@@ -25,7 +33,7 @@ class Database {
       })
       .catch((err) => console.log(err));
   }
-  delete(id) {
+  delete(id, userId) {
     db.collection("cards").doc(id).delete();
   }
 }

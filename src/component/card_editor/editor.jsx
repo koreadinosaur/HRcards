@@ -13,9 +13,13 @@ const Editor = ({
   onUpload,
   database,
   getFirestoreDB,
+  userId,
 }) => {
   useEffect(() => {
-    database.getData(getFirestoreDB);
+    if (!userId) {
+      return;
+    }
+    database.getData(getFirestoreDB, userId);
   }, []);
   return (
     <section className={styles.editor}>
