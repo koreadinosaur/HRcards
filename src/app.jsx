@@ -1,5 +1,11 @@
 import styles from "./app.module.css";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import Login from "./component/login/login";
 import Home from "./component/home";
 import Cardmaker from "./component/cardmaker/cardmaker";
@@ -10,7 +16,8 @@ import Footer from "./component/footer/footer";
 
 function App({ auth, onUpload, database }) {
   const navigate = useNavigate();
-  const [loginUser, setLoginUser] = useState();
+  const location = useLocation();
+  const [loginUser, setLoginUser] = useState(location && location.state);
   const logout = () => {
     firebase
       .auth()
@@ -20,9 +27,12 @@ function App({ auth, onUpload, database }) {
       });
   };
   const isLogin = () => {
-    const currentUser = auth.onAuthChange(setLoginUser);
-    console.log(loginUser);
+    auth.onAuthChange(setLoginUser);
+    console.log("User : " + loginUser);
+    const currentUser = firebase.auth().currentUser;
+    console.log("currentUser: " + currentUser);
   };
+  console.log("Location : " + location.state);
   useEffect(() => isLogin);
   return (
     <section className={styles.appContainer}>
@@ -31,7 +41,7 @@ function App({ auth, onUpload, database }) {
       </header>
       <div className={styles.main}>
         <Routes>
-          <Route path="/" element={<Home logout={logout} />} />
+          <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login auth={auth} />} />
           <Route
             path="/maker"

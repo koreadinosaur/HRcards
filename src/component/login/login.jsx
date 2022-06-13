@@ -7,16 +7,16 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 const Login = ({ auth }) => {
   const navigate = useNavigate();
   const authLogin = (event) => {
-    auth.login("Google").then(console.log);
+    auth.login("Google").catch(console.log);
   };
   const goToHome = (user) => {
     if (user) {
-      navigate("/");
+      navigate("/", { state: { user } });
     }
   };
   useEffect(() => {
     auth.onAuthChange(goToHome);
-  });
+  }, []);
   return (
     <div className={styles.loginPage}>
       <div className={styles.logoContainer}>

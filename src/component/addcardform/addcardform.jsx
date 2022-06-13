@@ -18,7 +18,7 @@ const Addcardform = ({ onAdd, onUpload }) => {
     const message = formRef.current[5].value;
     const update = false;
     const newObj = {
-      id,
+      id: Date.now(),
       name,
       company,
       theme,
