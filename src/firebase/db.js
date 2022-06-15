@@ -17,18 +17,16 @@ class Database {
     //   .catch(console.log);
   }
   getData(callback, userId) {
-    // const cardsRef = db.ref().child(userId + "cards");
-    // if (!userId || !cardsRef) {
-    //   return;
-    // }
-    // cardsRef.get().then((snapshot) => {
-    //   if (snapshot.exist()) {
-    //     console.log(snapshot.val());
-    //     callback(snapshot.val());
-    //   } else {
-    //     console.log("no data");
-    //   }
-    // });
+    const cardsRef = db.ref(userId + "/cards");
+    cardsRef.on("value", (snapshot) => {
+      const data = snapshot.val();
+      const newArr = [];
+      for (const key in data) {
+        newArr.push(data[key]);
+      }
+      callback(newArr);
+      return () => cardsRef.off;
+    });
     // 여기는 firestore 여러 문서 읽기
     // const docRef = db.collection("cards").doc(userId);
     // docRef

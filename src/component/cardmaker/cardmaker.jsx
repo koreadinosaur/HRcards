@@ -21,6 +21,7 @@ const Cardmaker = ({ onUpload, database, userId }) => {
   ]);
   const dbToCards = (cards) => {
     setCards(cards);
+    console.log(cards);
   };
 
   const addCards = (card) => {
@@ -62,7 +63,7 @@ const Cardmaker = ({ onUpload, database, userId }) => {
         onUpdate={handleUpdate}
         onUpload={onUpload}
         database={database}
-        getFirestoreDB={dbToCards}
+        firebaseDB={dbToCards}
       />
       <Preview cards={cards} />
     </section>

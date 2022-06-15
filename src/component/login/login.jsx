@@ -6,17 +6,25 @@ import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 const Login = ({ auth }) => {
   const navigate = useNavigate();
-  const authLogin = (event) => {
-    auth.login("Google").catch(console.log);
-  };
   const goToHome = (user) => {
     if (user) {
-      navigate("/", { state: { user } });
+      console.log("gotohome");
+      navigate("/", { state: user.uid });
     }
   };
+  const authLogin = (event) => {
+    auth.login("Google").then((user) => {
+      console.log(user.user);
+      goToHome(user.user);
+    });
+  };
   useEffect(() => {
-    auth.onAuthChange(goToHome);
-  }, []);
+    auth.onAuthChange((user) => {
+      if (user) {
+        navigate("/");
+      }
+    });
+  });
   return (
     <div className={styles.loginPage}>
       <div className={styles.logoContainer}>

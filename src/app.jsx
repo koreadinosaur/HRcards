@@ -25,12 +25,11 @@ function App({ auth, onUpload, database }) {
       .then(() => {
         navigate("/");
       });
+    setLoginUser(null);
   };
   const isLogin = () => {
     auth.onAuthChange(setLoginUser);
-    console.log("User : " + loginUser);
-    const currentUser = firebase.auth().currentUser;
-    console.log("currentUser: " + currentUser);
+    console.log(loginUser);
   };
   console.log("Location : " + location.state);
   useEffect(() => isLogin);

@@ -12,15 +12,15 @@ const Editor = ({
   onUpdateForm,
   onUpload,
   database,
-  getFirestoreDB,
+  firebaseDB,
   userId,
 }) => {
   useEffect(() => {
     if (!userId) {
       return;
     }
-    database.getData(getFirestoreDB, userId);
-  }, []);
+    database.getData(firebaseDB, userId);
+  }, [userId]);
   return (
     <section className={styles.editor}>
       {cards.map((card) => {
