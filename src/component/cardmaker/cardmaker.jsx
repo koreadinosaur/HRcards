@@ -19,20 +19,22 @@ const Cardmaker = ({ onUpload, database, userId }) => {
       fileName: null,
     },
   ]);
-  const dbToCards = (cards) => {
+  const cardsFromDB = (cards) => {
     setCards(cards);
     console.log(cards);
   };
 
   const addCards = (card) => {
     const newCards = [...cards, card];
+    console.log(newCards);
+    console.log(card);
     setCards(newCards);
     database.addData(card, userId);
   };
-  const deleteCard = (cardId) => {
-    const newCards = cards.filter((item) => item.id !== cardId);
-    setCards(newCards);
-    database.delete(cardId, userId);
+  const deleteCard = (card) => {
+    // const newCards = cards.filter((item) => item.id !== cardId);
+    // setCards(newCards);
+    database.delete(card, userId);
   };
   const changeToForm = (cardId) => {
     const newCards = [...cards];
@@ -63,7 +65,7 @@ const Cardmaker = ({ onUpload, database, userId }) => {
         onUpdate={handleUpdate}
         onUpload={onUpload}
         database={database}
-        firebaseDB={dbToCards}
+        cardsFromDB={cardsFromDB}
       />
       <Preview cards={cards} />
     </section>

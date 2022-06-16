@@ -44,8 +44,8 @@ class Database {
     //   })
     //   .catch((err) => console.log(err));
   }
-  delete(id, userId) {
-    db.collection("cards").doc(id).delete();
+  delete(data, userId) {
+    db.ref(userId + "/cards/" + data.id).remove();
   }
 }
 

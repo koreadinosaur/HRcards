@@ -8,7 +8,6 @@ const Login = ({ auth }) => {
   const navigate = useNavigate();
   const goToHome = (user) => {
     if (user) {
-      console.log("gotohome");
       navigate("/", { state: user.uid });
     }
   };

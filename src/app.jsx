@@ -28,11 +28,15 @@ function App({ auth, onUpload, database }) {
     setLoginUser(null);
   };
   const isLogin = () => {
+    console.log("isLogin");
     auth.onAuthChange(setLoginUser);
     console.log(loginUser);
   };
-  console.log("Location : " + location.state);
-  useEffect(() => isLogin);
+
+  useEffect(() => {
+    console.log("app.jsx");
+    return isLogin;
+  });
   return (
     <section className={styles.appContainer}>
       <header className={styles.header}>

@@ -17,7 +17,7 @@ const Card = ({ card, database, onDelete, onUpdateForm }) => {
   } = card;
   const formRef = React.createRef();
   const handleDelete = (event) => {
-    onDelete(id);
+    onDelete(card);
   };
   const handleUpdate = () => {
     onUpdateForm(id);
