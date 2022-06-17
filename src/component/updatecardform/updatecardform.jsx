@@ -5,19 +5,32 @@ import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 import UpdateInput from "../updateinput/updateinput";
 
-const UpdateCardForm = ({ onUpdate, card, onUpload }) => {
+const UpdateCardForm = ({ database, onUpdate, card, onUpload, userId }) => {
   const formRef = React.createRef();
   const [file, setFile] = useState({ url: null, fileName: null });
   const { name, company, theme, email, message, department, id, update } = card;
 
   const updateCard = (event) => {
     event.preventDefault();
+    const name = formRef.current[0].value;
+    const company = formRef.current[1].value;
+    const theme = formRef.current[2].value;
+    const department = formRef.current[3].value;
+    const email = formRef.current[4].value;
+    const message = formRef.current[5].value;
     const newObj = {
-      ...card,
+      id,
+      name,
+      company,
+      theme,
+      department,
+      email,
+      message,
       update: "false",
       url: file.url ? file.url : card.url,
       fileName: file.fileName ? file.fileName : card.fileName,
     };
+    database.update(newObj, userId);
     onUpdate(id, newObj);
   };
   const addFile = (obj) => {

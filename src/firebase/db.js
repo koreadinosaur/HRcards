@@ -47,6 +47,9 @@ class Database {
   delete(data, userId) {
     db.ref(userId + "/cards/" + data.id).remove();
   }
+  update(data, userId) {
+    db.ref(userId + "/cards/" + data.id).update(data);
+  }
 }
 
 export default Database;

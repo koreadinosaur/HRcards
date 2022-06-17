@@ -42,6 +42,8 @@ const Editor = ({
               onUpdate={onUpdate}
               onDelete={onDelete}
               onUpload={onUpload}
+              database={database}
+              userId={userId}
             />
           );
         }

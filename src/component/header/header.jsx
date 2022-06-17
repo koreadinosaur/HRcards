@@ -5,7 +5,6 @@ import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Header = ({ user, logout }) => {
   const navigate = useNavigate();
-  console.log(user);
   const onlogout = () => {
     logout();
   };
