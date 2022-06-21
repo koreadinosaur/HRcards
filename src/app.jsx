@@ -1,15 +1,8 @@
 import styles from "./app.module.css";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Login from "./component/login/login";
 import Home from "./component/home";
 import Cardmaker from "./component/cardmaker/cardmaker";
-import firebase from "firebase";
 import Header from "./component/header/header";
 import { useEffect, useState } from "react";
 import Footer from "./component/footer/footer";
@@ -19,12 +12,7 @@ function App({ auth, onUpload, database }) {
   const location = useLocation();
   const [loginUser, setLoginUser] = useState(location && location.state);
   const logout = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        navigate("/");
-      });
+    auth.logout(() => navigate("/"));
     setLoginUser(null);
   };
   const isLogin = () => {

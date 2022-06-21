@@ -1,9 +1,7 @@
-import { getDefaultNormalizer } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import styles from "./cardmaker.module.css";
 import Editor from "../card_editor/editor";
 import Preview from "../preview/preview";
-import imgUrl from "../../img/favicon.ico";
 
 const Cardmaker = ({ onUpload, database, userId }) => {
   const [cards, setCards] = useState([

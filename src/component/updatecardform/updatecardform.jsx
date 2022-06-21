@@ -1,7 +1,5 @@
 import React, { createRef, useState } from "react";
 import styles from "./updatecardform.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 import UpdateInput from "../updateinput/updateinput";
 

@@ -1,4 +1,3 @@
-import { faSnapchat } from "@fortawesome/free-brands-svg-icons";
 import { db } from "./firebase";
 
 class Database {

@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./app";
 import Authentication from "./firebase/auth";
-import firebase from "firebase";
 import UploadFile from "./service/cloudinary/upload";
 import Database from "./firebase/db";
 

@@ -1,12 +1,13 @@
-import firebase from "firebase";
-import { firebaseApp } from "./firebase";
+import { firebaseAuth, googleAuthProvider } from "./firebase";
 class Authentication {
   login(providerName) {
-    const provider = new firebase.auth[`${providerName}AuthProvider`]();
-    return firebaseApp.auth().signInWithPopup(provider).catch(console.log);
+    return firebaseAuth.signInWithPopup(googleAuthProvider).catch(console.log);
+  }
+  logout(callback) {
+    firebaseAuth.signOut().then(() => callback());
   }
   onAuthChange(callback) {
-    firebase.auth().onAuthStateChanged((user) => callback(user));
+    firebaseAuth.onAuthStateChanged((user) => callback(user));
   }
 }
 export default Authentication;

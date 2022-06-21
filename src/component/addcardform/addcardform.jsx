@@ -1,7 +1,6 @@
 import React, { createRef, useState } from "react";
 import styles from "./addcardform.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
+
 import Uploadinput from "../uploadinput/uploadinput";
 
 const Addcardform = ({ onAdd, onUpload }) => {

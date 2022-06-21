@@ -1,5 +1,3 @@
-import { faBlackberry } from "@fortawesome/free-brands-svg-icons";
-import { database } from "firebase";
 import React from "react";
 import styles from "./card.module.css";
 
