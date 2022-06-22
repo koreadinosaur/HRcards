@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./card.module.css";
 
-const Card = ({ card, database, onDelete, onUpdateForm }) => {
+const Card = ({ card, onDelete, onUpdateForm }) => {
   const {
     name,
     company,

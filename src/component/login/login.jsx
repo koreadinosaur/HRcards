@@ -8,22 +8,19 @@ const Login = ({ auth }) => {
   const navigate = useNavigate();
   const goToHome = (user) => {
     if (user) {
-      navigate("/", { state: user.uid });
+      navigate("/", { state: user.uid }); //state 전달안됨.
     }
   };
   const authLogin = (event) => {
-    auth.login("Google").then((user) => {
-      console.log(user.user);
-      goToHome(user.user);
-    });
+    auth.login("Google").then((user) => goToHome(user.user));
   };
   useEffect(() => {
     auth.onAuthChange((user) => {
       if (user) {
-        navigate("/");
+        navigate("/", { state: user.uid });
       }
     });
-  });
+  }, [auth]);
   return (
     <div className={styles.loginPage}>
       <div className={styles.logoContainer}>

@@ -19,8 +19,9 @@ const Editor = ({
     if (!userId) {
       return;
     }
-    database.getData(cardsFromDB, userId);
-  }, [userId]);
+    console.log("editor");
+    cardsFromDB();
+  }, [userId, database]);
   return (
     <section className={styles.editor}>
       {cards.map((card) => {

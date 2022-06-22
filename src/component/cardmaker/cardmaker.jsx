@@ -6,20 +6,20 @@ import Preview from "../preview/preview";
 const Cardmaker = ({ onUpload, database, userId }) => {
   const [cards, setCards] = useState([
     {
-      name: "김형진",
-      company: "무직",
-      theme: "pink",
-      email: "비밀",
-      message: "반갑습니다",
-      department: "개발",
+      name: "기본",
+      company: "기본",
+      theme: "기본",
+      email: "기본",
+      message: "기본",
+      department: "기본",
       id: 123123,
       update: "false",
       fileName: null,
     },
   ]);
-  const cardsFromDB = (cards) => {
-    setCards(cards);
-    console.log(cards);
+  const cardsFromDB = () => {
+    console.log("cardsFromDb");
+    database.getData((data) => setCards(data), userId);
   };
 
   const addCards = (card) => {
@@ -30,7 +30,7 @@ const Cardmaker = ({ onUpload, database, userId }) => {
     database.addData(card, userId);
   };
   const deleteCard = (card) => {
-    // const newCards = cards.filter((item) => item.id !== cardId);
+    // const newCards = cards.filter((item) => item.id !== card.id);
     // setCards(newCards);
     database.delete(card, userId);
   };

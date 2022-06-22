@@ -10,21 +10,18 @@ import Footer from "./component/footer/footer";
 function App({ auth, onUpload, database }) {
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(location.state);
   const [loginUser, setLoginUser] = useState(location && location.state);
+  console.log(loginUser);
   const logout = () => {
     auth.logout(() => navigate("/"));
     setLoginUser(null);
   };
   const isLogin = () => {
-    console.log("isLogin");
     auth.onAuthChange(setLoginUser);
-    console.log(loginUser);
   };
 
-  useEffect(() => {
-    console.log("app.jsx");
-    return isLogin;
-  });
+  useEffect(() => isLogin, [auth, loginUser, location]);
   return (
     <section className={styles.appContainer}>
       <header className={styles.header}>

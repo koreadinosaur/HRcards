@@ -23,9 +23,10 @@ class Database {
       for (const key in data) {
         newArr.push(data[key]);
       }
+      console.log(newArr);
       callback(newArr);
-      return () => cardsRef.off;
     });
+    return () => cardsRef.off;
     // 여기는 firestore 여러 문서 읽기
     // const docRef = db.collection("cards").doc(userId);
     // docRef
