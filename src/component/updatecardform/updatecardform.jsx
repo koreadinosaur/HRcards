@@ -25,9 +25,15 @@ const UpdateCardForm = ({ database, onUpdate, card, onUpload, userId }) => {
       email,
       message,
       update: "false",
-      url: file.url ? file.url : card.url,
-      fileName: file.fileName ? file.fileName : card.fileName,
+      url: file.url ? file.url : card.url ? card.url : "없음",
+      fileName: file.fileName
+        ? file.fileName
+        : card.fileName
+        ? card.fileName
+        : "없음",
     };
+    console.log("updateCard");
+    console.log(newObj);
     database.update(newObj, userId);
     onUpdate(id, newObj);
   };

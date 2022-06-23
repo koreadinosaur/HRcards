@@ -10,9 +10,7 @@ import Footer from "./component/footer/footer";
 function App({ auth, onUpload, database }) {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.state);
   const [loginUser, setLoginUser] = useState(location && location.state);
-  console.log(loginUser);
   const logout = () => {
     auth.logout(() => navigate("/"));
     setLoginUser(null);

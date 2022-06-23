@@ -23,7 +23,6 @@ class Database {
       for (const key in data) {
         newArr.push(data[key]);
       }
-      console.log(newArr);
       callback(newArr);
     });
     return () => cardsRef.off;
@@ -48,7 +47,9 @@ class Database {
     db.ref(userId + "/cards/" + data.id).remove();
   }
   update(data, userId) {
-    db.ref(userId + "/cards/" + data.id).update(data);
+    // const newData = { [data.id]: data };
+    // console.log(newData);
+    db.ref(`${userId}/cards/${data.id}`).set(data);
   }
 }
 

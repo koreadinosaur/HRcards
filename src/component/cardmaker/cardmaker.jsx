@@ -50,6 +50,7 @@ const Cardmaker = ({ onUpload, database, userId }) => {
       newCards[findIndex] = { ...obj };
     }
     setCards(newCards);
+    console.log("updated");
   };
 
   return (

@@ -19,7 +19,6 @@ const Editor = ({
     if (!userId) {
       return;
     }
-    console.log("editor");
     cardsFromDB();
   }, [userId, database]);
   return (
