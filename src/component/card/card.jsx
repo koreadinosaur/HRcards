@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./card.module.css";
 
-const Card = ({ card, onDelete, onUpdateForm }) => {
+const Card = memo(({ card, onDelete, onUpdateForm }) => {
   const {
     name,
     company,
@@ -54,6 +54,6 @@ const Card = ({ card, onDelete, onUpdateForm }) => {
       </div>
     </section>
   );
-};
+});
 
 export default Card;

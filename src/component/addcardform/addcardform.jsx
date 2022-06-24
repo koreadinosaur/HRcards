@@ -28,7 +28,6 @@ const Addcardform = ({ onAdd, onUpload }) => {
       url: file.url,
       fileName: file.fileName,
     };
-    console.log(newObj);
     formRef.current.reset();
     setFile({ url: null, fileName: null });
     onAdd(newObj);

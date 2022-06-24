@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styles from "./header.module.css";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const Header = ({ user, logout }) => {
+import { memo } from "react";
+const Header = memo(({ user, logout }) => {
   const navigate = useNavigate();
   const onlogout = () => {
     logout();
@@ -37,6 +38,6 @@ const Header = ({ user, logout }) => {
       </ul>
     </section>
   );
-};
+});
 
 export default Header;

@@ -19,11 +19,12 @@ class Database {
     const cardsRef = db.ref(userId + "/cards");
     cardsRef.on("value", (snapshot) => {
       const data = snapshot.val();
-      const newArr = [];
-      for (const key in data) {
-        newArr.push(data[key]);
-      }
-      callback(newArr);
+      // console.log(snapshot);
+      // const newArr = [];
+      // for (const key in data) {
+      //   newArr.push(data[key]);
+      // }
+      callback(data);
     });
     return () => cardsRef.off;
     // 여기는 firestore 여러 문서 읽기

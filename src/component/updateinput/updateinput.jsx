@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import styles from "./updateinput.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 
-const UpdateInput = ({ onUpload, onAddFile, file, card }) => {
+const UpdateInput = memo(({ onUpload, onAddFile, file, card }) => {
   const [loading, setLoading] = useState(false);
   const uploadFile = async (e) => {
     setLoading(true);
@@ -39,6 +39,6 @@ const UpdateInput = ({ onUpload, onAddFile, file, card }) => {
       />
     </div>
   );
-};
+});
 
 export default UpdateInput;

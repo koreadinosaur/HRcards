@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./previewcard.module.css";
 
 const cardColor = (theme) => {
@@ -12,7 +12,7 @@ const cardColor = (theme) => {
   }
 };
 
-const PreviewCard = ({ card }) => {
+const PreviewCard = memo(({ card }) => {
   const { name, company, theme, email, message, department, url } = card;
 
   return (
@@ -29,6 +29,6 @@ const PreviewCard = ({ card }) => {
       </div>
     </section>
   );
-};
+});
 
 export default PreviewCard;

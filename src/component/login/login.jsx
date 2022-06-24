@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import styles from "./login.module.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-const Login = ({ auth }) => {
+const Login = memo(({ auth }) => {
   const navigate = useNavigate();
   const goToHome = (user) => {
     if (user) {
@@ -64,6 +64,6 @@ const Login = ({ auth }) => {
       </section>
     </div>
   );
-};
+});
 
 export default Login;

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styles from "./uploadinput.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { memo } from "react";
 
-const Uploadinput = ({ onUpload, onAddFile, file }) => {
+const Uploadinput = memo(({ onUpload, onAddFile, file }) => {
   const [loading, setLoading] = useState(false);
 
   const uploadFile = async (e) => {
@@ -40,6 +41,6 @@ const Uploadinput = ({ onUpload, onAddFile, file }) => {
       />
     </div>
   );
-};
+});
 
 export default Uploadinput;

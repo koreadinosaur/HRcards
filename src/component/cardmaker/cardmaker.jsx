@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import styles from "./cardmaker.module.css";
 import Editor from "../card_editor/editor";
 import Preview from "../preview/preview";
+import { useCallback } from "react";
 
-const Cardmaker = ({ onUpload, database, userId }) => {
-  const [cards, setCards] = useState([
-    {
-      name: "기본",
-      company: "기본",
-      theme: "기본",
-      email: "기본",
-      message: "기본",
-      department: "기본",
-      id: 123123,
-      update: "false",
-      fileName: null,
-    },
-  ]);
-  const cardsFromDB = () => {
+const Cardmaker = memo(({ onUpload, database, userId }) => {
+  const [cards, setCards] = useState({ 1: { name: "형진" } });
+  const cardsFromDB = useCallback(() => {
     console.log("cardsFromDb");
     database.getData((data) => setCards(data), userId);
-  };
-
+  }, [database]);
+  console.log(cards);
   const addCards = (card) => {
-    const newCards = [...cards, card];
-    console.log(newCards);
-    console.log(card);
+    const newCards = { ...cards, [card.id]: card };
     setCards(newCards);
     database.addData(card, userId);
   };
@@ -35,22 +22,19 @@ const Cardmaker = ({ onUpload, database, userId }) => {
     database.delete(card, userId);
   };
   const changeToForm = (cardId) => {
-    const newCards = [...cards];
-    const findIndex = newCards.findIndex((card) => card.id == cardId);
-    if (findIndex != -1) {
-      newCards[findIndex] = { ...newCards[findIndex], update: "true" };
-    }
-    setCards(newCards);
+    setCards((cards) => {
+      const newCards = { ...cards };
+      newCards[cardId].update = true;
+      return newCards;
+    });
   };
 
-  const handleUpdate = (cardId, obj) => {
-    const newCards = [...cards];
-    const findIndex = newCards.findIndex((card) => card.id == cardId);
-    if (findIndex != -1) {
-      newCards[findIndex] = { ...obj };
-    }
-    setCards(newCards);
-    console.log("updated");
+  const handleUpdate = (card) => {
+    setCards((cards) => {
+      const newCards = { ...cards };
+      newCards[card.id] = card;
+      return newCards;
+    });
   };
 
   return (
@@ -69,6 +53,6 @@ const Cardmaker = ({ onUpload, database, userId }) => {
       <Preview cards={cards} />
     </section>
   );
-};
+});
 
 export default Cardmaker;
