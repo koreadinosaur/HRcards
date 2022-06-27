@@ -7,10 +7,13 @@ import { useCallback } from "react";
 const Cardmaker = memo(({ onUpload, database, userId }) => {
   const [cards, setCards] = useState({ 1: { name: "형진" } });
   const cardsFromDB = useCallback(() => {
-    console.log("cardsFromDb");
-    database.getData((data) => setCards(data), userId);
+    database.getData((data) => {
+      if (data === null) {
+        return;
+      }
+      setCards(data);
+    }, userId);
   }, [database]);
-  console.log(cards);
   const addCards = (card) => {
     const newCards = { ...cards, [card.id]: card };
     setCards(newCards);

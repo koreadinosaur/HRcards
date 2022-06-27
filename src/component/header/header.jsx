@@ -35,6 +35,9 @@ const Header = memo(({ user, logout }) => {
         <li onClick={() => navigate("/maker")} className={styles.nav__item}>
           card maker
         </li>
+        <li onClick={() => navigate("/cards")} className={styles.nav__item}>
+          HR 카드
+        </li>
       </ul>
     </section>
   );

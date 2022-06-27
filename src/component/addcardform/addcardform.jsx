@@ -2,28 +2,28 @@ import React, { createRef, useState } from "react";
 import styles from "./addcardform.module.css";
 
 import Uploadinput from "../uploadinput/uploadinput";
+import { useRef } from "react";
 
 const Addcardform = ({ onAdd, onUpload }) => {
-  const formRef = React.createRef();
+  const formRef = useRef();
+  const nameRef = useRef();
+  const departmentRef = useRef();
+  const positionRef = useRef();
+  const emailRef = useRef();
+  const contactRef = useRef();
+  const themeRef = useRef();
   const [file, setFile] = useState({ url: null, fileName: null });
   const addCard = (event) => {
     event.preventDefault();
-    const id = Date.now();
-    const name = formRef.current[0].value;
-    const company = formRef.current[1].value;
-    const theme = formRef.current[2].value;
-    const department = formRef.current[3].value;
-    const email = formRef.current[4].value;
-    const message = formRef.current[5].value;
     const update = false;
     const newObj = {
       id: Date.now(),
-      name,
-      company,
-      theme,
-      department,
-      email,
-      message,
+      name: nameRef.current.value || "",
+      position: positionRef.current.value || "",
+      theme: themeRef.current.value || "",
+      department: departmentRef.current.value || "",
+      email: emailRef.current.value || "",
+      contact: contactRef.current.value || "",
       update,
       url: file.url,
       fileName: file.fileName,
@@ -41,20 +41,20 @@ const Addcardform = ({ onAdd, onUpload }) => {
   return (
     <form ref={formRef} onSubmit={addCard} className={styles.cardContainer}>
       <div className={styles.row}>
-        <input type="text" placeholder="name" />
-        <input type="text" placeholder="company" />
-        <select>
+        <input type="text" ref={nameRef} placeholder="이름" />
+        <input type="text" ref={departmentRef} placeholder="부서" />
+        <select ref={themeRef}>
           <option value="dark">dark</option>
           <option value="white">white</option>
           <option value="pink">pink</option>
         </select>
       </div>
       <div className={styles.row}>
-        <input type="text" placeholder="department" />
-        <input type="text" placeholder="email" />
+        <input type="text" ref={positionRef} placeholder="직책(담당)" />
+        <input type="text" ref={emailRef} placeholder="email" />
       </div>
       <div className={styles.row}>
-        <input type="text" placeholder="message" />
+        <input type="text" ref={contactRef} placeholder="연락처" />
       </div>
       <footer className={styles.row}>
         <div className={styles.inputContainer}>

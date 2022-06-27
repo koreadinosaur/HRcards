@@ -7,13 +7,13 @@ const Card = memo(({ card, onDelete, onUpdateForm }) => {
     company,
     theme,
     email,
-    message,
+    contact,
     department,
     id,
     update,
     fileName,
   } = card;
-  const formRef = React.createRef();
+
   const handleDelete = (event) => {
     onDelete(card);
   };
@@ -36,7 +36,7 @@ const Card = memo(({ card, onDelete, onUpdateForm }) => {
         <span>{email}</span>
       </div>
       <div className={styles.row}>
-        <span>{`"${message}"`}</span>
+        <span>{contact}</span>
       </div>
       <div className={styles.row}>
         <span className={`${styles.fileName} ${styles.row4Element}`}>

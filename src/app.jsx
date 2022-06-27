@@ -1,11 +1,12 @@
 import styles from "./app.module.css";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Login from "./component/login/login";
-import Home from "./component/home";
+import Home from "./component/home/home";
 import Cardmaker from "./component/cardmaker/cardmaker";
 import Header from "./component/header/header";
 import { useEffect, useState } from "react";
 import Footer from "./component/footer/footer";
+import Hrcards from "./component/hrcards/hrcards";
 
 function App({ auth, onUpload, database }) {
   const navigate = useNavigate();
@@ -36,6 +37,15 @@ function App({ auth, onUpload, database }) {
                 userId={loginUser ? loginUser.uid : null}
                 database={database}
                 onUpload={onUpload}
+              />
+            }
+          />
+          <Route
+            path="/cards"
+            element={
+              <Hrcards
+                database={database}
+                userId={loginUser ? loginUser.uid : null}
               />
             }
           />

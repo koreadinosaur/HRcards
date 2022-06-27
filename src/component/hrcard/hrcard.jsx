@@ -1,5 +1,5 @@
-import React, { memo } from "react";
-import styles from "./previewcard.module.css";
+import React from "react";
+import styles from "./hrcard.module.css";
 
 const cardColor = (theme) => {
   switch (theme) {
@@ -12,9 +12,8 @@ const cardColor = (theme) => {
   }
 };
 
-const PreviewCard = memo(({ card }) => {
+const Hrcard = ({ card }) => {
   const { name, company, theme, email, contact, department, url } = card;
-
   return (
     <section className={`${styles.preview} ${cardColor(theme)}`}>
       <div className={styles.imgContainer}>
@@ -29,6 +28,6 @@ const PreviewCard = memo(({ card }) => {
       </div>
     </section>
   );
-});
+};
 
-export default PreviewCard;
+export default Hrcard;
