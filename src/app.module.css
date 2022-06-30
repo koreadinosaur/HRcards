@@ -1,9 +1,6 @@
 @value header-height, mediaQuery from './common/size.css';
 
 @media screen and (max-width: mediaQuery) {
-  .header {
-    margin-bottom: 3em;
-  }
 }
 @keyframes App-logo-spin {
 }

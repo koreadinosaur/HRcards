@@ -38,9 +38,6 @@ const Header = memo(({ user, logout }) => {
         <li onClick={() => navigate("/cards")} className={styles.nav__item}>
           HR 카드
         </li>
-        <li onClick={() => navigate("/test")} className={styles.nav__item}>
-          Test
-        </li>
       </ul>
     </section>
   );
