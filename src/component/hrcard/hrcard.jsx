@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useCycle, useState } from "react";
 import styles from "./hrcard.module.css";
+import { motion } from "framer-motion";
+import { MenuToggle } from "../animation/toggle";
 
 const cardColor = (theme) => {
   switch (theme) {
@@ -13,9 +15,10 @@ const cardColor = (theme) => {
 };
 
 const Hrcard = ({ card }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const { name, company, theme, email, contact, department, url } = card;
   return (
-    <section className={`${styles.preview} ${cardColor(theme)}`}>
+    <div className={`${styles.preview} ${cardColor(theme)}`}>
       <div className={styles.imgContainer}>
         <img src={url} alt="" />
       </div>
@@ -26,7 +29,10 @@ const Hrcard = ({ card }) => {
         <span className={styles.email}>{email}</span>
         <span className={styles.contact}>"{contact}"</span>
       </div>
-    </section>
+      <motion.nav>
+        <MenuToggle toggle={() => setIsOpen((isOpen) => !isOpen)} />
+      </motion.nav>
+    </div>
   );
 };
 

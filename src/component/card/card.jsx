@@ -9,6 +9,7 @@ const Card = memo(({ card, onDelete, onUpdateForm }) => {
     email,
     contact,
     department,
+    position,
     id,
     update,
     fileName,
@@ -23,8 +24,8 @@ const Card = memo(({ card, onDelete, onUpdateForm }) => {
   return (
     <section className={styles.cardContainer}>
       <div className={styles.row}>
-        <span className={styles.name}>{name}</span>
-        <span className={styles.company}>{company}</span>
+        <span>{name}</span>
+        <span>{department}</span>
         <select defaultValue={theme}>
           <option value="dark">dark</option>
           <option value="white">white</option>
@@ -32,7 +33,7 @@ const Card = memo(({ card, onDelete, onUpdateForm }) => {
         </select>
       </div>
       <div className={styles.row}>
-        <span>{department}</span>
+        <span>{position}</span>
         <span>{email}</span>
       </div>
       <div className={styles.row}>

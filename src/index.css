@@ -1,4 +1,5 @@
 @value makerblack, makerPink from './common/color.css';
+@value mediaQuery from './common/size.css';
 * {
   box-sizing: border-box;
 }

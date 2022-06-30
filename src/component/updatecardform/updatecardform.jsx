@@ -2,33 +2,33 @@ import React, { createRef, useState, memo } from "react";
 import styles from "./updatecardform.module.css";
 
 import UpdateInput from "../updateinput/updateinput";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 
 const UpdateCardForm = memo(
-  ({ database, onUpdate, card, onUpload, userId, key }) => {
-    const formRef = React.createRef();
+  ({ database, onUpdate, card, onUpload, userId }) => {
     const [file, setFile] = useState({ url: null, fileName: null });
-    const { name, company, theme, email, message, department, id, update } =
+    const { name, contact, theme, email, department, id, position, update } =
       card;
+    const formRef = useRef();
+    const nameRef = useRef();
+    const departmentRef = useRef();
+    const positionRef = useRef();
+    const emailRef = useRef();
+    const contactRef = useRef();
+    const themeRef = useRef();
 
     const updateCard = useCallback(
       (event) => {
         event.preventDefault();
-        const name = formRef.current[0].value;
-        const company = formRef.current[1].value;
-        const theme = formRef.current[2].value;
-        const department = formRef.current[3].value;
-        const email = formRef.current[4].value;
-        const message = formRef.current[5].value;
         const newObj = {
           id,
-          name,
-          company,
-          theme,
-          department,
-          email,
-          message,
-          update: "false",
+          name: nameRef.current.value || "",
+          position: positionRef.current.value || "",
+          theme: themeRef.current.value || "",
+          department: departmentRef.current.value || "",
+          email: emailRef.current.value || "",
+          contact: contactRef.current.value || "",
+          update: false,
           url: file.url ? file.url : card.url ? card.url : "없음",
           fileName: file.fileName
             ? file.fileName
@@ -54,9 +54,19 @@ const UpdateCardForm = memo(
         className={styles.cardContainer}
       >
         <div className={styles.row}>
-          <input type="text" placeholder="name" defaultValue={name} />
-          <input type="text" placeholder="company" defaultValue={company} />
-          <select defaultValue={theme}>
+          <input
+            type="text"
+            defaultValue={name}
+            ref={nameRef}
+            placeholder="이름"
+          />
+          <input
+            type="text"
+            defaultValue={department}
+            ref={departmentRef}
+            placeholder="부서"
+          />
+          <select defaultValue={theme} ref={themeRef}>
             <option value="dark">dark</option>
             <option value="white">white</option>
             <option value="pink">pink</option>
@@ -65,13 +75,24 @@ const UpdateCardForm = memo(
         <div className={styles.row}>
           <input
             type="text"
-            placeholder="department"
-            defaultValue={department}
+            ref={positionRef}
+            placeholder="직책(담당)"
+            defaultValue={position}
           />
-          <input type="text" placeholder="email" defaultValue={email} />
+          <input
+            type="text"
+            ref={emailRef}
+            placeholder="email"
+            defaultValue={email}
+          />
         </div>
         <div className={styles.row}>
-          <input type="text" placeholder="message" defaultValue={message} />
+          <input
+            type="text"
+            ref={contactRef}
+            placeholder="연락처"
+            defaultValue={contact}
+          />
         </div>
         <div className={styles.row}>
           <div className={styles.inputContainer}>
