@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Hrcard from "../hrcard/hrcard";
+import styles from "./hrcards.module.css";
 
 const Hrcards = ({ database, userId }) => {
   const [cards, setCards] = useState({});
@@ -14,7 +15,7 @@ const Hrcards = ({ database, userId }) => {
   }, [database, userId]);
 
   return (
-    <div>
+    <div className={styles.hrcards}>
       {Object.keys(cards).map((key) => (
         <Hrcard card={cards[key]} key={key} />
       ))}

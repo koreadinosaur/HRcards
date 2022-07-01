@@ -42,3 +42,33 @@
 .pink {
   background-color: pink;
 }
+.background {
+  position: relative;
+  top: -50px;
+  left: 30px;
+  width: 500px;
+  height: 50px;
+  background: red;
+}
+button {
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.motionContainer {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.listContainer {
+  background-color: blue;
+}

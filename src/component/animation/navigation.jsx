@@ -1,6 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { MenuItem } from "./menuitem";
+import styles from "../hrcard/hrcard.module.css";
 
 const variants = {
   open: {
@@ -12,7 +13,7 @@ const variants = {
 };
 
 export const Navigation = () => (
-  <motion.ul variants={variants}>
+  <motion.ul variants={variants} className={styles.listContainer}>
     {itemIds.map((i) => (
       <MenuItem i={i} key={i} />
     ))}
