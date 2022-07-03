@@ -13,7 +13,7 @@ const cardColor = (theme) => {
 };
 
 const PreviewCard = memo(({ card }) => {
-  const { name, company, theme, email, contact, department, url } = card;
+  const { name, position, theme, email, contact, department, url } = card;
 
   return (
     <section className={`${styles.preview} ${cardColor(theme)}`}>
@@ -22,10 +22,10 @@ const PreviewCard = memo(({ card }) => {
       </div>
       <div className={styles.info}>
         <span className={styles.name}>{name}</span>
-        <span className={styles.company}>{company}</span>
-        <span className={styles.department}>{department}</span>
+        <span className={styles.company}>{department}</span>
+        <span className={styles.department}>{position}</span>
         <span className={styles.email}>{email}</span>
-        <span className={styles.contact}>"{contact}"</span>
+        <span className={styles.contact}>{contact}</span>
       </div>
     </section>
   );

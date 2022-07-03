@@ -24,3 +24,6 @@
 .main {
   flex: 1;
 }
+li {
+  list-style: none;
+}

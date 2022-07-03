@@ -50,7 +50,7 @@
   height: 50px;
   background: red;
 }
-button {
+.toggleBtn {
   outline: none;
   border: none;
   -webkit-user-select: none;
@@ -58,14 +58,13 @@ button {
   -ms-user-select: none;
   cursor: pointer;
   z-index: 1;
-  width: 50px;
-  height: 50px;
   border-radius: 50%;
   background: transparent;
+  padding: 0;
 }
 
 .motionContainer {
-  width: 50px;
+  width: 30px;
   display: flex;
   flex-direction: column;
 }

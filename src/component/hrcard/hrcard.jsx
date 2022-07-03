@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MenuToggle } from "../animation/toggle";
 import { useDimensions } from "../animation/use-dimentions";
 import { Navigation } from "../animation/navigation";
-import { Detail } from "../animation/detail";
+import { PersonalRecord } from "../personalrecord/personalrecord";
 
 const cardColor = (theme) => {
   switch (theme) {
@@ -28,7 +28,7 @@ const sidebar = {
   closed: {
     clipPath: "circle(0px at 25px 20px)",
     transition: {
-      delay: 0.5,
+      delay: 0.2,
       type: "spring",
       stiffness: 400,
       damping: 40,
@@ -52,7 +52,7 @@ const Hrcard = ({ card }) => {
       >
         <MenuToggle toggle={() => setIsOpen((isOpen) => !isOpen)} />
         <motion.div className={styles.background} variants={sidebar}>
-          <Navigation />
+          <PersonalRecord />
         </motion.div>
       </motion.nav>
       <div className={styles.imgContainer}>
