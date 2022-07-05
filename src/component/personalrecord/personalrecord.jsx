@@ -1,6 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import styles from "../hrcard/hrcard.module.css";
+import Basic from "./basic";
 
 const variants = {
   open: {
@@ -27,22 +28,7 @@ export const PersonalRecord = () => {
       whileTap={{ scale: 0.95 }}
       className={styles.listContainer}
     >
-      <div>
-        <label htmlFor="name">이름</label>
-        <input type="text" id="name" />
-        <label htmlFor="department">부서</label>
-        <input type="text" id="department" />
-      </div>
-      <div>
-        <label htmlFor="position">직책</label>
-        <input type="text" id="position" />
-        <label htmlFor="email">이메일</label>
-        <input type="text" id="email" />
-      </div>
-      <div>
-        <label htmlFor="entry">입사연도</label>
-        <input type="text" id="entry" />
-      </div>
+      <Basic />
     </motion.li>
   );
 };
