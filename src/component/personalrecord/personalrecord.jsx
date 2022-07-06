@@ -2,6 +2,7 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import styles from "../hrcard/hrcard.module.css";
 import Basic from "./basic";
+import Certificate from "./certificate";
 
 const variants = {
   open: {
@@ -29,6 +30,7 @@ export const PersonalRecord = () => {
       className={styles.listContainer}
     >
       <Basic />
+      <Certificate />
     </motion.li>
   );
 };

@@ -1,5 +1,6 @@
+/* Basic component */
 .basic {
-  width: 800px;
+  width: 500px;
   text-align: center;
   background-color: red;
   border-right: 1px solid black;
@@ -27,15 +28,44 @@
 }
 .nameType:nth-child(2),
 .birth:nth-child(4) {
-  flex: 3;
+  flex: 2;
 }
 .address {
   display: flex;
 }
 .address > span:nth-child(1) {
-  width: 14.3%;
+  width: 20%;
 }
 .address > span {
   width: 100%;
   text-align: center;
+}
+
+/* Certificate component */
+.certificate {
+  display: flex;
+  width: 500px;
+  text-align: center;
+  background-color: red;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.certificate div,
+.certificate li {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+.certificate div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1.18;
+}
+.certificate ul {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+.certificate ul > li {
+  width: 100%;
 }
