@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import styles from "../hrcard/hrcard.module.css";
 import Basic from "./basic";
 import Certificate from "./certificate";
+import Physical from "./physical";
 
 const variants = {
   open: {
@@ -31,6 +32,7 @@ export const PersonalRecord = () => {
     >
       <Basic />
       <Certificate />
+      <Physical />
     </motion.li>
   );
 };
