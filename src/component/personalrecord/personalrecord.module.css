@@ -1,8 +1,11 @@
+.listContainer {
+  background-color: white;
+  color: blue;
+}
 /* Basic component */
 .basic {
   width: 500px;
   text-align: center;
-  background-color: white;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
 }
@@ -107,4 +110,27 @@
 .centimeter span {
   position: absolute;
   right: 0;
+}
+
+/* Education component */
+.education {
+  text-align: center;
+  display: flex;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+.education div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1.18;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+.education ul {
+  flex: 3;
+}
+.education li {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
 }

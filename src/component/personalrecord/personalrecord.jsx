@@ -1,9 +1,10 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import styles from "../hrcard/hrcard.module.css";
+import styles from "./personalrecord.module.css";
 import Basic from "./basic";
 import Certificate from "./certificate";
 import Physical from "./physical";
+import Education from "./education";
 
 const variants = {
   open: {
@@ -25,14 +26,15 @@ const variants = {
 export const PersonalRecord = () => {
   return (
     <motion.li
+      className={styles.listContainer}
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className={styles.listContainer}
     >
       <Basic />
       <Certificate />
       <Physical />
+      <Education />
     </motion.li>
   );
 };
