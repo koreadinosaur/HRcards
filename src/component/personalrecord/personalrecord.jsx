@@ -5,6 +5,8 @@ import Basic from "./basic";
 import Certificate from "./certificate";
 import Physical from "./physical";
 import Education from "./education";
+import Carrier from "./carrier";
+import Entry from "./entry";
 
 const variants = {
   open: {
@@ -32,9 +34,11 @@ export const PersonalRecord = () => {
       whileTap={{ scale: 0.95 }}
     >
       <Basic />
+      <Entry />
       <Certificate />
       <Physical />
       <Education />
+      <Carrier />
     </motion.li>
   );
 };
