@@ -25,7 +25,7 @@ const variants = {
   },
 };
 
-export const PersonalRecord = () => {
+export const PersonalRecord = ({ card }) => {
   return (
     <motion.li
       className={styles.listContainer}
@@ -33,8 +33,8 @@ export const PersonalRecord = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <Basic />
-      <Entry />
+      <Basic card={card} />
+      <Entry card={card} />
       <Certificate />
       <Physical />
       <Education />

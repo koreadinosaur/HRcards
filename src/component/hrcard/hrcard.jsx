@@ -52,7 +52,7 @@ const Hrcard = ({ card }) => {
       >
         <MenuToggle toggle={() => setIsOpen((isOpen) => !isOpen)} />
         <motion.div className={styles.background} variants={sidebar}>
-          <PersonalRecord />
+          <PersonalRecord card={card} />
         </motion.div>
       </motion.nav>
       <div className={styles.imgContainer}>

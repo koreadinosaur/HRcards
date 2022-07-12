@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./personalrecord.module.css";
 
-const Basic = (props) => {
+const Basic = ({ card }) => {
+  const { name } = card;
   return (
     <section className={styles.basic}>
       <ul className={styles.container}>
@@ -10,7 +11,7 @@ const Basic = (props) => {
           <span>이름(한문)</span>
         </li>
         <li className={styles.nameType}>
-          <span>""</span>
+          <span>{name}</span>
           <span>""</span>
         </li>
         <li className={styles.birth}>

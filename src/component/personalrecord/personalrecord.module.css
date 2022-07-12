@@ -172,7 +172,7 @@
   border-bottom: 1px solid black;
 }
 
-.entry div {
+.entry > div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,7 +183,16 @@
 .entry ul {
   flex: 5.11;
 }
-.entry li > span {
+.entry li {
+  width: 100%;
+  height: 100%;
+}
+.container li > div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-top: 1px solid black;
   border-left: 1px solid black;
 }
