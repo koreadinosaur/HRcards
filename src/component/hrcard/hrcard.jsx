@@ -1,10 +1,12 @@
+import { AnimatePresence } from "framer-motion";
 import React, { useRef, useState } from "react";
+import Detailcard from "./detailcard";
 import styles from "./hrcard.module.css";
-import { motion } from "framer-motion";
-import { MenuToggle } from "../animation/toggle";
-import { useDimensions } from "../animation/use-dimentions";
-import { Navigation } from "../animation/navigation";
-import { PersonalRecord } from "../personalrecord/personalrecord";
+// import { motion } from "framer-motion";
+// import { MenuToggle } from "../animation/toggle";
+// import { useDimensions } from "../animation/use-dimentions";
+// import { Navigation } from "../animation/navigation";
+// import { PersonalRecord } from "../personalrecord/personalrecord";
 
 const cardColor = (theme) => {
   switch (theme) {
@@ -39,11 +41,14 @@ const sidebar = {
 const Hrcard = ({ card }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
-  const { height } = useDimensions(containerRef);
-  const { name, company, theme, email, contact, department, url } = card;
+  // const { height } = useDimensions(containerRef);
+  const { name, company, theme, email, contact, department, url, id } = card;
   return (
-    <div className={`${styles.preview} ${cardColor(theme)}`}>
-      <motion.nav
+    <a
+      className={`${styles.preview} ${cardColor(theme)}`}
+      href={"/cards/" + id}
+    >
+      {/* <motion.nav
         initial={false}
         animate={isOpen ? "open" : "closed"}
         ref={containerRef}
@@ -54,7 +59,8 @@ const Hrcard = ({ card }) => {
         <motion.div className={styles.background} variants={sidebar}>
           <PersonalRecord card={card} />
         </motion.div>
-      </motion.nav>
+      </motion.nav> */}
+
       <div className={styles.imgContainer}>
         <img src={url} alt="" />
       </div>
@@ -65,7 +71,7 @@ const Hrcard = ({ card }) => {
         <span className={styles.email}>{email}</span>
         <span className={styles.contact}>"{contact}"</span>
       </div>
-    </div>
+    </a>
   );
 };
 
