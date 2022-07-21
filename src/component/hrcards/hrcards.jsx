@@ -17,7 +17,7 @@ const Hrcards = ({ database, userId }) => {
       }
       setCards(data);
     }, userId);
-  }, [database, userId]);
+  }, [database, userId, cardId]);
 
   return (
     <section className={styles.hrcards}>
@@ -25,7 +25,7 @@ const Hrcards = ({ database, userId }) => {
         <Hrcard card={cards[key]} key={key} />
       ))}
       <AnimatePresence>
-        {cardId && <Detailcard id={cardId} card={cards[cardId]} />}
+        {cards[cardId] && <Detailcard id={cardId} card={cards[cardId]} />}
       </AnimatePresence>
     </section>
   );

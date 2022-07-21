@@ -22,7 +22,7 @@ const Entry = ({ card }) => {
             <span>""</span>
           </div>
           <div>
-            <span>{position ? position : "미기입"}</span>
+            <span>{position ? position : "미입력"}</span>
           </div>
         </li>
         <li className={styles.list}>
@@ -35,7 +35,7 @@ const Entry = ({ card }) => {
         </li>
         <li className={styles.blank}>
           <div>
-            <span>{department ? department : "미기입"}</span>
+            <span>{department ? department : "미입력"}</span>
           </div>
           <div>
             <span>""</span>

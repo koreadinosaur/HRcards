@@ -11,7 +11,7 @@ const Basic = ({ card }) => {
           <span>이름(한문)</span>
         </li>
         <li className={styles.nameType}>
-          <span>{name}</span>
+          <span>{name || "미입력"}</span>
           <span>""</span>
         </li>
         <li className={styles.birth}>
