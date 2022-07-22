@@ -72,8 +72,20 @@
 }
 
 /* animation */
-.cardRecordContainer {
-  z-index: 5;
+.detailContainer {
+}
+.openContent {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  padding: 40px 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
 }
 
 .linkContainer {
@@ -95,14 +107,21 @@
   bottom: 0;
   width: 100vw;
   left: 50%;
-
   transform: translateX(-50%);
 }
-.open {
+.cardRecordContainer {
+  margin: 0 auto;
+  height: auto;
+  max-width: 700px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.openContent .cardRecordContainer {
   height: auto;
   max-width: 700px;
   overflow: hidden;
   pointer-events: none;
 }
 .recordContainer {
+  background-color: white;
 }

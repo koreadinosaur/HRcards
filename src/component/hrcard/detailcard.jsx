@@ -8,7 +8,7 @@ const Detailcard = memo(({ card, id }) => {
   const { name, company, theme, email, contact, department, url } = card;
   console.log(id);
   return (
-    <section className={`${styles.detailContainer} styles.${theme}`}>
+    <section className={`${styles.detailContainer} ${styles.theme}`}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -19,24 +19,26 @@ const Detailcard = memo(({ card, id }) => {
       >
         <Link to="/cards" />
       </motion.div>
-      <motion.div
-        className={`${styles.cardRecordContainer} ${styles.open}`}
-        layoutId={`cardContainer-${id}`}
-      >
-        <div className={styles.imgContainer}>
-          <img src={url} alt="" />
-        </div>
-        <div className={styles.info}>
-          <span className={styles.name}>{name || "미입력"}</span>
-          <span className={styles.company}>{company || "미입력"}</span>
-          <span className={styles.department}>{department || "미입력"}</span>
-          <span className={styles.email}>{email || "미입력"}</span>
-          <span className={styles.contact}>"{contact || "미입력"}"</span>
-        </div>
-        <motion.div className={styles.recordContainer} animate>
-          <PersonalRecord card={card} className={styles.personalRecord} />
+      <div className={styles.openContent}>
+        <motion.div
+          className={styles.cardRecordContainer}
+          layoutId={`cardContainer-${id}`}
+        >
+          <div className={styles.imgContainer}>
+            <img src={url} alt="" />
+          </div>
+          <div className={styles.info}>
+            <span className={styles.name}>{name || "미입력"}</span>
+            <span className={styles.company}>{company || "미입력"}</span>
+            <span className={styles.department}>{department || "미입력"}</span>
+            <span className={styles.email}>{email || "미입력"}</span>
+            <span className={styles.contact}>"{contact || "미입력"}"</span>
+          </div>
+          <motion.ul className={styles.recordContainer} animate>
+            <PersonalRecord card={card} className={styles.personalRecord} />
+          </motion.ul>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 });

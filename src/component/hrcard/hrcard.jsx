@@ -47,18 +47,6 @@ const Hrcard = ({ card }) => {
   const { name, company, theme, email, contact, department, url, id } = card;
   return (
     <motion.div onClick={() => navigate(`/cards/${card.id}`)} layout>
-      {/* <motion.nav
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        ref={containerRef}
-        custom={height}
-        className={styles.motionContainer}
-      >
-        <MenuToggle toggle={() => setIsOpen((isOpen) => !isOpen)} />
-        <motion.div className={styles.background} variants={sidebar}>
-          <PersonalRecord card={card} />
-        </motion.div>
-      </motion.nav> */}
       <motion.div
         layoutId={`cardContainer-${id}`}
         className={`${styles.preview} ${cardColor(theme)}`}
