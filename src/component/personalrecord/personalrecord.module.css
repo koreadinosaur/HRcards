@@ -4,7 +4,6 @@
 }
 /* Basic component */
 .basic {
-  width: 500px;
   text-align: center;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
@@ -47,7 +46,6 @@
 /* Certificate component */
 .certificate {
   display: flex;
-  width: 500px;
   text-align: center;
 
   border-right: 1px solid black;
@@ -76,8 +74,6 @@
 /* Physical component */
 .physical {
   display: flex;
-
-  width: 500px;
   text-align: center;
   border-right: 1px solid black;
   border-bottom: 1px solid black;

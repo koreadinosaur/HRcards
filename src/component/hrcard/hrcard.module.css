@@ -125,3 +125,12 @@
 .recordContainer {
   background-color: white;
 }
+.hrcard {
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+.hrcard img {
+  width: 150px;
+  height: 150px;
+}

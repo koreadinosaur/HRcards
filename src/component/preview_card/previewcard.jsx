@@ -21,11 +21,11 @@ const PreviewCard = memo(({ card }) => {
         <img src={url} alt="" />
       </div>
       <div className={styles.info}>
-        <span className={styles.name}>{name}</span>
-        <span className={styles.company}>{department}</span>
-        <span className={styles.department}>{position}</span>
-        <span className={styles.email}>{email}</span>
-        <span className={styles.contact}>{contact}</span>
+        <span className={styles.name}>{name || "미입력"}</span>
+        <span className={styles.company}>{department || "미입력"}</span>
+        <span className={styles.department}>{position || "미입력"}</span>
+        <span className={styles.email}>{email || "미입력"}</span>
+        <span className={styles.contact}>{contact || "미입력"}</span>
       </div>
     </section>
   );

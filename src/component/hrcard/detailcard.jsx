@@ -24,16 +24,20 @@ const Detailcard = memo(({ card, id }) => {
           className={styles.cardRecordContainer}
           layoutId={`cardContainer-${id}`}
         >
-          <div className={styles.imgContainer}>
-            <img src={url} alt="" />
-          </div>
-          <div className={styles.info}>
-            <span className={styles.name}>{name || "미입력"}</span>
-            <span className={styles.company}>{company || "미입력"}</span>
-            <span className={styles.department}>{department || "미입력"}</span>
-            <span className={styles.email}>{email || "미입력"}</span>
-            <span className={styles.contact}>"{contact || "미입력"}"</span>
-          </div>
+          <section className={styles.hrcard}>
+            <div className={styles.imgContainer}>
+              <img src={url} alt="" />
+            </div>
+            <div className={styles.info}>
+              <span className={styles.name}>{name || "미입력"}</span>
+              <span className={styles.company}>{company || "미입력"}</span>
+              <span className={styles.department}>
+                {department || "미입력"}
+              </span>
+              <span className={styles.email}>{email || "미입력"}</span>
+              <span className={styles.contact}>"{contact || "미입력"}"</span>
+            </div>
+          </section>
           <motion.ul className={styles.recordContainer} animate>
             <PersonalRecord card={card} className={styles.personalRecord} />
           </motion.ul>
