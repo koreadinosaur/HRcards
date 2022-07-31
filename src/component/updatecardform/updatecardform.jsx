@@ -19,6 +19,7 @@ const UpdateCardForm = memo(
 
     const updateCard = useCallback(
       (event) => {
+        console.log("updatecard Function");
         event.preventDefault();
         const newObj = {
           id,
@@ -29,23 +30,25 @@ const UpdateCardForm = memo(
           email: emailRef.current.value || "",
           contact: contactRef.current.value || "",
           update: false,
-          url: file.url ? file.url : card.url ? card.url : "없음",
+          url: file.url ? file.url : card.url ? card.url : "",
           fileName: file.fileName
             ? file.fileName
             : card.fileName
             ? card.fileName
-            : "없음",
+            : "",
         };
         database.update(newObj, userId);
         onUpdate(newObj);
       },
-      [database]
+      [database, file]
     );
     const addFile = (obj) => {
+      console.log(obj);
       setFile({
         url: obj.url,
         fileName: obj.fileName,
       });
+      console.log(file);
     };
     return (
       <form

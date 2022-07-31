@@ -1,4 +1,5 @@
 .preview {
+  background-color: cornsilk;
   color: darkviolet;
   flex-basis: 50%;
   display: grid;

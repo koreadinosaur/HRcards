@@ -25,8 +25,8 @@ const Addcardform = ({ onAdd, onUpload }) => {
       email: emailRef.current.value || "",
       contact: contactRef.current.value || "",
       update,
-      url: file.url,
-      fileName: file.fileName,
+      url: file.url || "",
+      fileName: file.fileName || "",
     };
     formRef.current.reset();
     setFile({ url: null, fileName: null });
