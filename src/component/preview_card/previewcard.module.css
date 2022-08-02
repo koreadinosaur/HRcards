@@ -1,3 +1,5 @@
+@value font-lg, font-medium,font-small from '../../common/size.css';
+
 .preview {
   position: relative;
   display: flex;
@@ -10,6 +12,8 @@
   width: 55mm;
   height: 84mm;
   color: black;
+  white-space: nowrap;
+  overflow: visible;
 }
 .preview::after {
   position: absolute;
@@ -32,8 +36,16 @@
   width: 100%;
   text-align: center;
 }
-.info span {
-  margin-bottom: 0.7em;
+.preview span {
+  margin-bottom: 8px;
+}
+.name {
+  font-size: font-medium;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+.position {
+  font-size: font-small;
 }
 .position::after {
   display: block;

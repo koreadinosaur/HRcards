@@ -44,22 +44,24 @@ const Hrcard = ({ card }) => {
   const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const navigate = useNavigate();
-  const { name, company, theme, email, contact, department, url, id } = card;
+  const { name, position, theme, email, contact, department, url, id } = card;
   return (
     <motion.div onClick={() => navigate(`/cards/${card.id}`)} layout>
       <motion.div
         layoutId={`cardContainer-${id}`}
         className={`${styles.preview} ${cardColor(theme)}`}
       >
+        <span className={styles.department}>{department || "미입력"}</span>
         <div className={styles.imgContainer}>
           <img src={url} alt="" />
         </div>
         <div className={styles.info}>
-          <span className={styles.name}>{name}</span>
-          <span className={styles.company}>{company}</span>
-          <span className={styles.department}>{department}</span>
-          <span className={styles.email}>{email}</span>
-          <span className={styles.contact}>"{contact}"</span>
+          <span className={styles.name}>
+            {name.length > 5 ? name.split(" ")[0] : name || "미입력"}
+          </span>
+          <span className={styles.position}>{position || "미입력"}</span>
+          <span className={styles.email}>{email || "미입력"}</span>
+          <span className={styles.contact}>{contact || "미입력"}</span>
         </div>
       </motion.div>
     </motion.div>

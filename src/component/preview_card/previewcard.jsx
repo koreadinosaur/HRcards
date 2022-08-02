@@ -22,7 +22,9 @@ const PreviewCard = memo(({ card }) => {
         <img src={url} alt="" />
       </div>
       <div className={styles.info}>
-        <span className={styles.name}>{name || "미입력"}</span>
+        <span className={styles.name}>
+          {name.length > 5 ? name.split(" ")[0] : name || "미입력"}
+        </span>
         <span className={styles.position}>{position || "미입력"}</span>
         <span className={styles.email}>{email || "미입력"}</span>
         <span className={styles.contact}>{contact || "미입력"}</span>

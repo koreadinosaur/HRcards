@@ -5,7 +5,7 @@ import { PersonalRecord } from "../personalrecord/personalrecord";
 import { Link } from "react-router-dom";
 
 const Detailcard = memo(({ card, id }) => {
-  const { name, company, theme, email, contact, department, url } = card;
+  const { name, position, theme, email, contact, department, url } = card;
   console.log(id);
   return (
     <section className={`${styles.detailContainer} ${styles.theme}`}>
@@ -30,7 +30,7 @@ const Detailcard = memo(({ card, id }) => {
             </div>
             <div className={styles.info}>
               <span className={styles.name}>{name || "미입력"}</span>
-              <span className={styles.company}>{company || "미입력"}</span>
+              <span className={styles.position}>{position || "미입력"}</span>
               <span className={styles.department}>
                 {department || "미입력"}
               </span>

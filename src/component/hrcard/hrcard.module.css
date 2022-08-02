@@ -1,49 +1,83 @@
+@value font-lg, font-medium,font-small from '../../common/size.css';
+
 .preview {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
   border-radius: 12px;
   margin: 1em;
-  width: 84mm;
-  height: 55mm;
+  width: 55mm;
+  height: 84mm;
+  color: black;
+  white-space: nowrap;
+  overflow: visible;
+}
+.preview::after {
+  position: absolute;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  top: 0;
+  content: "";
+  height: 40%;
+  width: 100%;
+  background-color: brown;
 }
 .preview:hover {
   cursor: pointer;
 }
+.preview span {
+  position: relative;
+  z-index: 1;
+}
 .info {
   display: flex;
   flex-direction: column;
-  margin-left: 1em;
+  align-items: center;
   width: 100%;
+  text-align: center;
 }
-.info span {
-  margin-bottom: 0.7em;
+.preview span {
+  margin-bottom: 8px;
 }
-
-.company::after {
+.name {
+  font-size: font-medium;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+.position {
+  font-size: font-small;
+}
+.position::after {
   display: block;
   content: "";
   height: 1px;
-  width: 90%;
+  width: 40mm;
   background-color: burlywood;
   margin-top: 0.5em;
 }
 
 .imgContainer img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-left: 10px;
+  position: relative;
+  z-index: 1;
+  width: 90px;
+  height: 120px;
 }
 .black {
   background-color: black;
+  color: white;
 }
 .white {
   background-color: white;
 }
 .pink {
   background-color: pink;
+}
+.department {
+  color: white;
+  margin-bottom: 10px;
 }
 .background {
   position: relative;
@@ -128,9 +162,10 @@
 .hrcard {
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: brown;
+  color: white;
 }
 .hrcard img {
-  width: 150px;
+  width: 120px;
   height: 150px;
 }
