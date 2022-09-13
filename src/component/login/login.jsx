@@ -11,6 +11,9 @@ const Login = memo(({ auth }) => {
       navigate("/", { state: user.uid }); //state 전달안됨.
     }
   };
+  const goToSignUp = () => {
+    navigate("/signUp");
+  };
   const authLogin = (event) => {
     auth.login("Google").then((user) => goToHome(user.user));
   };
@@ -50,7 +53,15 @@ const Login = memo(({ auth }) => {
             id="password"
             className={styles.input}
           />
-          <button className={styles.button}>login</button>
+          <div className="buttonContainer">
+            <button
+              className={`${styles.button} ${styles.signUp}`}
+              onClick={goToSignUp}
+            >
+              Sign Up
+            </button>
+            <button className={styles.button}>login</button>
+          </div>
         </form>
         <div className={styles.authLoginContainer}>
           <button className={styles.googleLogin} onClick={authLogin}>

@@ -1,0 +1,16 @@
+.signUpPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.signUpFormContainer {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 50%;
+}
+.input {
+  margin-top: 1rem;
+}

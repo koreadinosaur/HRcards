@@ -7,6 +7,7 @@ import Header from "./component/header/header";
 import { useEffect, useState } from "react";
 import Footer from "./component/footer/footer";
 import Hrcards from "./component/hrcards/hrcards";
+import SignUp from "./component/signup/signup";
 
 import { AnimateSharedLayout } from "framer-motion";
 import Detailcard from "./component/hrcard/detailcard";
@@ -34,6 +35,7 @@ function App({ auth, onUpload, database }) {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/login" element={<Login auth={auth} />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route
               path="/maker"
               element={

@@ -15,6 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid burlywood;
 }
 .icon {
   font-size: font-lg;
@@ -35,6 +36,7 @@
   height: 400px;
   margin: 0;
   border-radius: 0 5% 5% 0;
+  border: 1px solid burlywood;
 }
 .form label {
   margin-right: auto;
@@ -67,6 +69,8 @@
 }
 button:hover {
   cursor: pointer;
+  color: rgb(43, 173, 225);
+  border-color: rgb(43, 173, 225);
 }
 .button {
   width: 10em;
@@ -75,6 +79,9 @@ button:hover {
   color: burlywood;
   border: 1px solid burlywood;
   border-radius: 24px;
+}
+.signUp {
+  margin-right: 1rem;
 }
 .authLoginContainer {
   position: relative;
