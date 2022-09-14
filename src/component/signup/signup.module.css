@@ -1,3 +1,4 @@
+@value font-lg, mediaQuery from '../../common/size.css';
 .signUpPage {
   display: flex;
   flex-direction: column;
@@ -7,10 +8,68 @@
 }
 .signUpFormContainer {
   display: flex;
+  align-items: center;
   flex-direction: column;
   height: 50%;
-  width: 50%;
+  max-width: 500px;
+}
+.signup__inputContainer {
+  margin-top: 1em;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.signup__inputLabel {
+  color: rgb(59, 57, 57);
 }
 .input {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 2.5em;
+  border: 0.5px solid rgb(227, 198, 198);
+}
+.input:focus {
+  outline: none;
+  border-color: #d6a8e9;
+  box-shadow: 0 0 15px #d6a8e9;
+}
+.input:focus + label {
+  color: rgb(70, 70, 222);
+  font-weight: 500;
+}
+.checkList {
+  margin-top: 1em;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.mismatch {
+  color: red;
+}
+.mismatch::before {
+  content: "×  ";
+}
+.match {
+  color: blue;
+}
+.match::before {
+  content: "✓  ";
+}
+.checkList__Item {
+  list-style-position: inside;
+  width: 50%;
+}
+
+.title {
+  font-size: 2em;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .checkList {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .checkList__Item {
+    width: 200px;
+  }
 }
