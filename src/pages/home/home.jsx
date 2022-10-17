@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./home.module.css";
 
-import logo from "../../img/logo.png";
+import logo from "../../img/newlogo.png";
 const Home = ({ logout }) => {
   return (
     <div>

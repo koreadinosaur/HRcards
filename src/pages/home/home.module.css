@@ -17,8 +17,9 @@
 }
 
 .logo {
-  height: 40px;
-  color: yellow;
+  height: 80px;
+}
+.logo:hover {
 }
 .text_box {
   position: absolute;
@@ -37,9 +38,38 @@
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  animation: moveRightInLeft 3s ease;
 }
 .heading_primary_sub {
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 15px;
+  animation: moveLeftInRight 3s ease;
+}
+@keyframes moveRightInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveLeftInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
