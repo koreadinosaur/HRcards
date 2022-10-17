@@ -2,27 +2,26 @@
 @value headerBgColor from '../../common/color.css';
 .header {
   display: flex;
-  position: fixed;
-  max-width: 2000px;
+  position: absolute;
   width: 100%;
   height: header-height;
   align-items: center;
-  justify-content: space-around;
-  background-color: headerBgColor;
+  z-index: 2;
 }
+
 .navContainer {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
-  right: 1em;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  margin-left: auto;
   /* background-color: aliceblue; */
 }
 .nav__item {
   margin: 0 1em;
   line-height: header-height;
-  color: white;
+  color: rgb(202, 231, 160);
 }
 .nav__item:hover {
   cursor: pointer;

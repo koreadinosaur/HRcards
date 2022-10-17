@@ -11,13 +11,13 @@ const Header = memo(({ user, logout }) => {
   };
   return (
     <section className={styles.header}>
-      <div>
+      {/* <div>
         <FontAwesomeIcon
           onClick={() => navigate("/")}
           icon={faAddressCard}
           className={styles.icon}
         />
-      </div>
+      </div> */}
 
       <ul className={styles.navContainer}>
         <li onClick={() => navigate("/")} className={styles.nav__item}>
